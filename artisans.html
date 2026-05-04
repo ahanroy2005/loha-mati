@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les Artisans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .artisan-page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 80px;
+    background: var(--cream);
+  }
+  .artisan-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    background: var(--white);
+    overflow: hidden;
+  }
+  .artisan-profile.reverse {
+    grid-template-columns: 1fr 1fr;
+  }
+  .artisan-profile.reverse .ap-img-wrap { order: 2; }
+  .artisan-profile.reverse .ap-text { order: 1; }
+  .ap-img-wrap {
+    position: relative;
+    height: 500px;
+  }
+  .ap-img-note {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px;
+    border: 1px dashed rgba(255,255,255,0.2);
+  }
+  .ap-text {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ap-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .ap-meta {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .ap-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-md);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  
+  @media (max-width: 900px) {
+    .artisan-page-grid { padding: 40px 24px; gap: 40px; }
+    .artisan-profile, .artisan-profile.reverse { grid-template-columns: 1fr; }
+    .artisan-profile.reverse .ap-img-wrap { order: 1; }
+    .artisan-profile.reverse .ap-text { order: 2; }
+    .ap-img-wrap { height: 300px; }
+    .ap-text { padding: 40px 24px; }
+  }
+  .section-title { color: var(--ink); }
+  .section-title em { color: var(--clay); font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="page-header" style="background: var(--cream); color: var(--ink); padding: 120px 24px 80px; text-align: center; border-bottom: 1px solid rgba(196,113,58,0.08);">
+  <div class="section-eyebrow" data-i18n="artisan_eyebrow" style="color: var(--clay);">Les Créateurs</div>
+  <h1 class="section-title" data-i18n="artisan_title_html" style="color: var(--ink);">Rencontrez <em style="color: var(--clay);">nos artisans</em></h1>
+  <p class="section-desc" data-i18n="artisan_desc" style="color: var(--ink-md);">Chaque achat soutient directement une famille d'artisans dans les villages d'Odisha.</p>
+</div>
+
+<div class="artisan-page-grid">
+  
+  <div class="artisan-profile fade-up">
+    <div class="ap-img-wrap" style="background: url('loha face/suresh.jpg'); background-size: cover; background-position: center;">
+      <div class="ap-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+    </div>
+    <div class="ap-text">
+      <h2 class="ap-name">Suresh Mahali</h2>
+      <div class="ap-meta">Maître artisan · Karamul, Dhenkanal</div>
+      <p class="ap-desc">
+        Suresh représente la quatrième génération de sculpteurs sur métal dans sa famille. Installé dans le village des arts de Karamul, il maîtrise la création de grandes pièces complexes comme des guerriers et des animaux mythologiques. Sa précision dans la pose des fils de cire donne à ses créations une texture unique au monde.
+      </p>
+      <a href="shop.html" class="btn-outline" style="align-self:flex-start;">Voir ses créations</a>
+    </div>
+  </div>
+
+  <div class="artisan-profile reverse fade-up">
+    <div class="ap-img-wrap" style="background: url('loha face/Kamala devi.png'); background-size: cover; background-position: center;">
+      <div class="ap-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+    </div>
+    <div class="ap-text">
+      <h2 class="ap-name">Kamala Devi</h2>
+      <div class="ap-meta">Spécialiste en bijoux · Nuasahi, Dhenkanal</div>
+      <p class="ap-desc">
+        Kamala a appris l'art de la cire perdue en observant ses parents dès son plus jeune âge. Aujourd'hui, elle dirige un groupe de femmes artisanes dans son village de Nuasahi. Elle excelle dans la création de bijoux tribaux délicats et de miniatures, mêlant les motifs de la nature à des designs ancestraux.
+      </p>
+      <a href="shop.html" class="btn-outline" style="align-self:flex-start;">Voir ses créations</a>
+    </div>
+  </div>
+
+  <div class="artisan-profile fade-up">
+    <div class="ap-img-wrap" style="background: url('loha face/lakshmi sahoo.png.webp'); background-size: cover; background-position: center;">
+      <div class="ap-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+    </div>
+    <div class="ap-text">
+      <h2 class="ap-name">Lakshmi Sahoo</h2>
+      <div class="ap-meta">Artiste sculpteur · Karamul, Dhenkanal</div>
+      <p class="ap-desc">
+        Lakshmi est connue pour ses représentations de la vie quotidienne et des divinités locales. Son atelier à Karamul est un lieu de transmission où elle forme de jeunes apprentis pour assurer la survie de cette technique millénaire. Ses œuvres sont caractérisées par des expressions faciales remarquablement détaillées.
+      </p>
+      <a href="shop.html" class="btn-outline" style="align-self:flex-start;">Voir ses créations</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">GPay</button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

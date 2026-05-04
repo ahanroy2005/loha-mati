@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loha Mati — L'Art Tribal d'Odisha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── LANGUAGE SWITCHER ─── -->
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+  <button class="lang-btn" onclick="setLang('hi')" id="btn-hi">हि</button>
+  <button class="lang-btn" onclick="setLang('od')" id="btn-od">ଓଡ଼</button>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="#" class="logo">Loha Mati<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Boutique</a></li>
+    <li><a href="story.html" data-i18n="nav_story">Notre Histoire</a></li>
+    <li><a href="index.html#artisans" data-i18n="nav_artisans">Les Artisans</a></li>
+    <li><a href="index.html#art" data-i18n="nav_art">L'Art Loha Mati</a></li>
+    <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn">🛒 <span data-i18n="nav_cart">Panier</span> (0)</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+
+<main style="background: var(--white); padding-bottom: 80px;">
+  <!-- Breadcrumb -->
+  <div style="padding: 24px 80px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--cream-dk);">
+    <a href="index.html" style="color: var(--ink-lt); text-decoration: none;">Home</a> <span style="margin: 0 8px;">/</span>
+    <a href="shop.html" style="color: var(--ink-lt); text-decoration: none;">Shop</a> <span style="margin: 0 8px;">/</span>
+    <span style="color: var(--ink);">Tribal Dancer</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 60px 80px;">
+    <!-- Product Images -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="width: 100%; height: 600px; background-image: url('DSC01266.JPG'); background-size: cover; background-position: center;"></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="height: 300px; background-image: url('DSC01041.JPG'); background-size: cover; background-position: center;"></div>
+        <div style="height: 300px; background-image: url('DSC00873.JPG'); background-size: cover; background-position: center;"></div>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div style="position: sticky; top: 100px; align-self: start; padding-right: 40px;">
+      <div class="product-cat" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 12px;">Sculpture</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; margin-bottom: 16px;">Tribal Dancer</h1>
+      
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; margin-bottom: 32px;">€68 <span style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400; color: var(--ink-lt);">TTC</span></div>
+
+      <p style="font-size: 15px; line-height: 1.8; color: var(--ink-md); margin-bottom: 40px;">
+        A beautifully handcrafted piece representing a tribal dancer, made using the ancient 4000-year-old lost-wax casting technique. Every intricate detail is carefully shaped by hand, ensuring that this object is a truly unique addition to any interior.
+      </p>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 48px;">
+        <div style="border: 1px solid var(--cream-dk); display: flex; align-items: center; padding: 0 16px; width: 120px;">
+          <button style="border: none; background: none; cursor: pointer; font-size: 18px; color: var(--ink); padding: 12px;">-</button>
+          <span style="flex: 1; text-align: center; font-size: 14px;">1</span>
+          <button style="border: none; background: none; cursor: pointer; font-size: 18px; color: var(--ink); padding: 12px;">+</button>
+        </div>
+        <button class="btn-primary" style="flex: 1; padding: 16px; text-align: center;">ADD TO CART</button>
+      </div>
+
+      <!-- Accordions -->
+      <div style="border-top: 1px solid var(--cream-dk);">
+        <div style="padding: 24px 0; border-bottom: 1px solid var(--cream-dk); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">Details & Dimensions</h3>
+          <span>+</span>
+        </div>
+        <div style="padding: 24px 0; border-bottom: 1px solid var(--cream-dk); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">Shipping & Returns</h3>
+          <span>+</span>
+        </div>
+        <div style="padding: 24px 0; border-bottom: 1px solid var(--cream-dk); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">Artisan Story</h3>
+          <span>+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <svg class="footer-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4.5 12h15m-15 0a7.5 7.5 0 1115 0m-15 0a7.5 7.5 0 1015 0" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="index.html" class="logo">Loha Mati<span>.</span></a>
+      </div>
+      <p class="footer-tagline" data-i18n="footer_desc">At Loha Mati, we believe a beautiful home begins with intention. We're more than a platform, we're a team of conscious curators dedicated to selecting only the best for your space.</p>
+      <div class="footer-payments">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">AMEX</span>
+      </div>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_quick">QUICK LINKS</h4>
+      <ul>
+        <li><a href="story.html" data-i18n="nav_story">About Us</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Contact Us</a></li>
+        <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_info">INFORMATION</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer_terms">Terms and Conditions</a></li>
+        <li><a href="#" data-i18n="footer_shipping">Shipping & Delivery</a></li>
+        <li><a href="returns.html" data-i18n="footer_returns">Return/Replacement</a></li>
+        <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col footer-contact-col">
+      <h4 data-i18n="footer_help">NEED HELP</h4>
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <span>+33 1 23 45 67 89</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">✉️</span>
+        <span>bonjour@lohamati.fr</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🕒</span>
+        <span data-i18n="footer_hours">Active (Mon-Sat) 10 AM - 6 PM</span>
+      </div>
+    </div>
+    
+    <div class="footer-col footer-sub-col">
+      <h4 data-i18n="footer_subscribe">SUBSCRIBE TO OUR NEWSLETTER</h4>
+      <div class="footer-subscribe">
+        <input type="email" placeholder="Your e..." class="sub-input">
+        <button class="sub-btn">Subscribe</button>
+      </div>
+      <h4 class="mt-4" data-i18n="footer_follow">GIVE US A FOLLOW</h4>
+      <div class="social-icons">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">x</a>
+        <a href="#" class="social-icon">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 Loha Mati. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC01266.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">GPay</button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

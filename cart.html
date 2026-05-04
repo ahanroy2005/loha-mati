@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre Panier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page-header">
+  <div class="section-eyebrow" data-i18n="nav_shop">Boutique</div>
+  <h1 class="section-title" data-i18n="cart_title">Votre Panier</h1>
+</div>
+
+<section class="cart-page fade-up">
+  <div class="cart-container">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th data-i18n="nav_shop">Produit</th>
+          <th data-i18n="qty" style="text-align:center;">Quantité</th>
+          <th data-i18n="total" style="text-align:right;">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cart-item">
+          <td>
+            <div class="ci-product">
+              <div class="ci-img" style="background: linear-gradient(135deg, #3A2010 0%, #6B3A1A 50%, #A85A2A 100%);"></div>
+              <div class="ci-info">
+                <h4 data-i18n="prod1_name">Danseuse Tribale</h4>
+                <p data-i18n="cat_deco">Décoration</p>
+                <div class="ci-price">€68</div>
+                <button class="ci-remove" data-i18n="remove">Supprimer</button>
+              </div>
+            </div>
+          </td>
+          <td style="text-align:center;">
+            <div class="qty-btn" style="display:inline-flex;">
+              <button onclick="document.getElementById('qty1').innerText = Math.max(1, parseInt(document.getElementById('qty1').innerText) - 1)">-</button>
+              <span id="qty1">1</span>
+              <button onclick="document.getElementById('qty1').innerText = parseInt(document.getElementById('qty1').innerText) + 1">+</button>
+            </div>
+          </td>
+          <td>
+            <div class="ci-total">€68</div>
+          </td>
+        </tr>
+        
+        <tr class="cart-item">
+          <td>
+            <div class="ci-product">
+              <div class="ci-img" style="background: linear-gradient(135deg, #1A2A2A 0%, #2A4A3A 50%, #4A7A5A 100%);"></div>
+              <div class="ci-info">
+                <h4 data-i18n="prod2_name">Éléphant Royal</h4>
+                <p data-i18n="cat_sculpture">Sculpture</p>
+                <div class="ci-price">€95</div>
+                <button class="ci-remove" data-i18n="remove">Supprimer</button>
+              </div>
+            </div>
+          </td>
+          <td style="text-align:center;">
+            <div class="qty-btn" style="display:inline-flex;">
+              <button onclick="document.getElementById('qty2').innerText = Math.max(1, parseInt(document.getElementById('qty2').innerText) - 1)">-</button>
+              <span id="qty2">1</span>
+              <button onclick="document.getElementById('qty2').innerText = parseInt(document.getElementById('qty2').innerText) + 1">+</button>
+            </div>
+          </td>
+          <td>
+            <div class="ci-total">€95</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cart-summary">
+      <div class="summary-line">
+        <span data-i18n="subtotal">Sous-total</span>
+        <span>€163</span>
+      </div>
+      <div class="summary-line">
+        <span data-i18n="footer_shipping">Livraison</span>
+        <span>Calculée à l'étape suivante</span>
+      </div>
+      <div class="summary-total">
+        <span data-i18n="total">Total</span>
+        <span>€163</span>
+      </div>
+      <button class="btn-primary checkout-btn" data-i18n="checkout">Valider la commande</button>
+    </div>
+
+  </div>
+</section>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">
+          <svg width="36" height="15" viewBox="0 0 36 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2536 6.84364L13.2538 6.84376C14.0754 6.84376 14.8118 7.15174 15.3448 7.64015C15.8943 8.14376 16.2087 8.84155 16.2087 9.61051C16.2087 10.3795 15.8943 11.0772 15.3448 11.5808C14.8118 12.0692 14.0754 12.3773 13.2538 12.3773L13.2536 12.3773L10.3014 12.3773L10.3014 6.84364H13.2536ZM13.2536 5.25052H8.56391V13.9704H10.3014V12.3773L13.2536 12.3773C14.5361 12.3773 15.6888 11.896 16.5161 11.1378C17.3756 10.3499 17.8427 9.24357 17.8427 8.01691V7.98687V7.98683C17.8427 6.76017 17.3756 5.65381 16.5161 4.86595C15.6888 4.10776 14.5361 3.62646 13.2536 3.62646V5.25052ZM27.0988 5.63185V13.9704H25.3613V12.593H25.3217C24.7828 13.5131 23.6394 14.1506 22.3725 14.1506C20.3151 14.1506 18.7303 12.721 18.7303 10.7417V10.7416V10.7115C18.7303 8.73228 20.3151 7.30268 22.3725 7.30268C23.6394 7.30268 24.7828 7.94017 25.3217 8.86036H25.3613V5.63185H27.0988ZM22.9567 8.78859C21.8213 8.78859 20.8415 9.61058 20.8415 10.7416C20.8415 11.8727 21.8213 12.6947 22.9567 12.6947C24.0921 12.6947 25.0719 11.8727 25.0719 10.7416C25.0719 9.61058 24.0921 8.78859 22.9567 8.78859ZM32.7483 14.1506C32.0622 14.1506 31.3934 13.9877 30.7963 13.682L31.6373 12.3022C32.0305 12.5152 32.4416 12.6186 32.8458 12.6186C33.3614 12.6186 33.626 12.3611 33.626 11.9687V11.9386L28.1639 5.63185H30.1345L34.5824 10.8711H34.6219L39.0699 5.63185H41.0405L35.4385 12.1648V12.1949C35.4385 13.3855 34.4093 14.1506 32.7483 14.1506Z" fill="white"/>
+            <path d="M5.13264 5.92215C5.81156 5.92215 6.36852 6.10862 6.78651 6.46328C7.2045 6.81793 7.42436 7.29177 7.42436 7.84831V10.7675H5.85045V9.61066H5.78768C5.39417 10.5186 4.70617 10.9925 3.75471 10.9925C2.94639 10.9925 2.27435 10.7644 1.76189 10.3159C1.25585 9.86095 0.998466 9.29345 0.998466 8.64147C0.998466 7.95759 1.27216 7.40428 1.80265 6.96325C2.33959 6.51576 3.09062 6.28691 4.02537 6.28691C4.82133 6.28691 5.48545 6.42597 6.00288 6.69085V6.52988C6.00288 6.11586 5.84534 5.75988 5.51877 5.4619C5.20436 5.16393 4.8118 5.00843 4.31682 5.00843C3.51351 5.00843 2.87102 5.34094 2.42065 5.98687L1.13941 5.17887C1.9961 3.93175 3.09459 3.28424 4.3986 3.28424C5.13264 5.92215 5.13264 5.92215ZM2.56947 8.69446C2.56947 9.00888 2.70138 9.28189 2.94493 9.50284C3.195 9.71754 3.52494 9.82989 3.91689 9.82989C4.54519 9.82989 5.06648 9.59389 5.45266 9.1159C5.84521 8.63152 6.03798 8.09358 6.03798 7.49557C5.6325 7.19758 5.0487 7.03842 4.25413 7.03842C3.76566 7.03842 3.36437 7.15343 3.03152 7.37891C2.70522 7.59792 2.56947 7.91578 2.56947 8.69446Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

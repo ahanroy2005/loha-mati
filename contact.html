@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Loha Mati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-page {
+    padding: 80px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .contact-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .contact-info p {
+    font-size: 16px;
+    color: var(--ink-md);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .info-block {
+    margin-bottom: 32px;
+  }
+  .info-block h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+  .info-block p {
+    margin-bottom: 0;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .contact-form {
+    background: var(--white);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .input-group label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-lt);
+  }
+  .input-group input, .input-group textarea {
+    padding: 16px;
+    border: 1px solid var(--ink-lt);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-group textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  .input-group input:focus, .input-group textarea:focus {
+    border-color: var(--clay);
+  }
+  @media (max-width: 900px) {
+    .contact-page { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+    .contact-form { padding: 24px; }
+  }
+  .section-title { color: var(--ink); }
+  .section-title em { color: var(--clay); font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="page-header" style="background: var(--cream); color: var(--ink); padding: 120px 24px 80px; text-align: center; border-bottom: 1px solid rgba(196,113,58,0.08);">
+  <div class="section-eyebrow" data-i18n="nav_contact" style="color: var(--clay);">Contact</div>
+  <h1 class="section-title" style="color: var(--ink);">Nous <em style="color: var(--clay);">écrire</em></h1>
+  <p class="section-desc" style="color: var(--ink-md);">Une question ? Un projet ? Notre équipe est là pour vous répondre.</p>
+</div>
+
+<section class="contact-page">
+  <div class="contact-info fade-up">
+    <h2>Une question ? Un projet ?</h2>
+    <p>Que vous ayez une question sur une commande, que vous cherchiez une pièce sur mesure, ou que vous souhaitiez en savoir plus sur l'art Dhokra, notre équipe basée en France est là pour vous répondre.</p>
+    
+    <div class="info-block">
+      <h4>Email</h4>
+      <p>bonjour@lohamati.fr</p>
+    </div>
+    
+    <div class="info-block">
+      <h4>Service Client</h4>
+      <p>Disponible du lundi au vendredi, de 9h à 18h.</p>
+    </div>
+
+    <div class="info-block">
+      <h4>Ateliers Partenaires</h4>
+      <p>Karamul & Nuasahi, Dhenkanal, Odisha, Inde.</p>
+    </div>
+  </div>
+
+  <div class="contact-form fade-up" style="transition-delay:0.2s">
+    <div class="input-group">
+      <label>Nom complet</label>
+      <input type="text" placeholder="Votre nom">
+    </div>
+    <div class="input-group">
+      <label>Adresse e-mail</label>
+      <input type="email" placeholder="nom@exemple.com">
+    </div>
+    <div class="input-group">
+      <label>Sujet</label>
+      <input type="text" placeholder="Ex: Commande #1234">
+    </div>
+    <div class="input-group">
+      <label>Message</label>
+      <textarea placeholder="Comment pouvons-nous vous aider ?"></textarea>
+    </div>
+    <button class="btn-primary" style="margin-top: 16px;">Envoyer le message</button>
+  </div>
+</section>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">GPay</button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

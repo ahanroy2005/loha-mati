@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loha Mati — L'Art Tribal d'Odisha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── LANGUAGE SWITCHER ─── -->
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+  <button class="lang-btn" onclick="setLang('hi')" id="btn-hi">हि</button>
+  <button class="lang-btn" onclick="setLang('od')" id="btn-od">ଓଡ଼</button>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="#" class="logo">Loha Mati<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Boutique</a></li>
+    <li><a href="story.html" data-i18n="nav_story">Notre Histoire</a></li>
+    <li><a href="index.html#artisans" data-i18n="nav_artisans">Les Artisans</a></li>
+    <li><a href="index.html#art" data-i18n="nav_art">L'Art Loha Mati</a></li>
+    <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn">🛒 <span data-i18n="nav_cart">Panier</span> (0)</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Art Tribal · Odisha, Inde · 4000 ans de tradition</div>
+    <h1 class="hero-title" data-i18n="hero_title_html">L'art de la <em>cire perdue</em> livré en France</h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Chaque pièce est façonnée à la main par des artisans d'Odisha, en utilisant la technique ancestrale de la cire perdue vieille de 4000 ans. Unique, éthique, authentique.</p>
+    <div class="hero-actions">
+      <a href="shop.html" class="btn-primary" data-i18n="hero_cta1">Découvrir la boutique</a>
+      <a href="story.html" class="btn-outline" data-i18n="hero_cta2">Notre histoire</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4000</div>
+        <div class="stat-label" data-i18n="stat1">Ans d'histoire</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label" data-i18n="stat2">Fait main</div>
+      </div>
+      <div>
+        <div class="stat-num">32+</div>
+        <div class="stat-label" data-i18n="stat3">Artisans soutenus</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-placeholder" style="background-image: url('DSC00954.JPG'); background-size: cover; background-position: center;">
+      
+      
+    </div>
+    <div class="hero-img-label" data-i18n="hero_caption">Artisan au travail · Village de Karamul, Dhenkanal</div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-wrap">
+  <div class="marquee-inner" id="marquee-text">
+    <span data-i18n="marquee1">Commerce Équitable</span>
+    <span data-i18n="marquee2">Livraison France</span>
+    <span data-i18n="marquee3">Pièce Unique</span>
+    <span data-i18n="marquee4">Artisans d'Odisha</span>
+    <span data-i18n="marquee5">Technique ancestrale</span>
+    <span data-i18n="marquee1">Commerce Équitable</span>
+    <span data-i18n="marquee2">Livraison France</span>
+    <span data-i18n="marquee3">Pièce Unique</span>
+    <span data-i18n="marquee4">Artisans d'Odisha</span>
+    <span data-i18n="marquee5">Technique ancestrale</span>
+  </div>
+</div>
+
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <div class="trust-icon">🤝</div>
+    <div>
+      <div class="trust-title" data-i18n="trust1_title">Commerce Équitable</div>
+      <div class="trust-sub" data-i18n="trust1_sub">Artisans payés justement</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🚚</div>
+    <div>
+      <div class="trust-title" data-i18n="trust2_title">Livraison en France</div>
+      <div class="trust-sub" data-i18n="trust2_sub">7–14 jours ouvrés</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">✦</div>
+    <div>
+      <div class="trust-title" data-i18n="trust3_title">Pièce Unique</div>
+      <div class="trust-sub" data-i18n="trust3_sub">Chaque œuvre est originale</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">↩</div>
+    <div>
+      <div class="trust-title" data-i18n="trust4_title">Retours Faciles</div>
+      <div class="trust-sub" data-i18n="trust4_sub">14 jours, sans questions</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURED PRODUCTS ─── -->
+<section class="products-section" id="shop">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow" data-i18n="prod_eyebrow">Collection</div>
+    <h2 class="section-title" data-i18n="prod_title_html">Pièces <em>choisies</em></h2>
+    <p class="section-desc" data-i18n="prod_desc">Chaque objet est forgé dans le laiton par la méthode de la cire perdue — une technique inchangée depuis 4000 ans.</p>
+  </div>
+  <div class="products-grid">
+    <a href="product.html" class="product-card fade-up" style="text-decoration: none; color: inherit; display: block;">
+      <div class="product-img" style="background-image: url('DSC01266.JPG'); background-size: cover; background-position: center;">
+        <div class="product-badge" data-i18n="badge_new">Nouveau</div>
+        
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_deco">Décoration</div>
+        <div class="product-name" data-i18n="prod1_name">Danseuse Tribale</div>
+        <div class="product-artisan" data-i18n="prod1_artisan">par Suresh Mahali · Karamul, Dhenkanal</div>
+        <div class="product-footer">
+          <div class="product-price">€68 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </a>
+    <a href="product.html" class="product-card fade-up" style="transition-delay:0.15s; text-decoration: none; color: inherit; display: block;">
+      <div class="product-img product-img-2" style="background-image: url('DSC01041.JPG'); background-size: cover; background-position: center;">
+        <div class="product-badge" data-i18n="badge_bestseller">Best-seller</div>
+        
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_sculpture">Sculpture</div>
+        <div class="product-name" data-i18n="prod2_name">Éléphant Royal</div>
+        <div class="product-artisan" data-i18n="prod2_artisan">par Kamala Devi · Nuasahi, Dhenkanal</div>
+        <div class="product-footer">
+          <div class="product-price">€95 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </a>
+    <a href="product.html" class="product-card fade-up" style="transition-delay:0.3s; text-decoration: none; color: inherit; display: block;">
+      <div class="product-img product-img-3" style="background-image: url('DSC00873.JPG'); background-size: cover; background-position: center;">
+        <div class="product-badge" data-i18n="badge_unique">Pièce unique</div>
+        
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_bijoux">Bijoux</div>
+        <div class="product-name" data-i18n="prod3_name">Collier Tribal</div>
+        <div class="product-artisan" data-i18n="prod3_artisan">par Lakshmi Sahoo · Karamul, Dhenkanal</div>
+        <div class="product-footer">
+          <div class="product-price">€42 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ─── STORY SECTION ─── -->
+<section class="story-section" id="story">
+  <div class="story-visual">
+    <div class="story-img-inner" style="background-image: url('DSC00954.JPG'); background-size: cover; background-position: center;">
+      
+      
+    </div>
+    <div class="story-quote">
+      <blockquote data-i18n="story_quote">"Nous façonnons le métal comme nos ancêtres l'ont fait pendant des millénaires — avec de la cire d'abeille, de l'argile et du feu."</blockquote>
+      <cite data-i18n="story_cite">— Suresh Mahali, Artisan Loha Mati, Karamul, Dhenkanal</cite>
+    </div>
+  </div>
+  <div class="story-text">
+    <div class="section-eyebrow" data-i18n="story_eyebrow">Technique Ancestrale</div>
+    <h2 class="section-title" data-i18n="story_title_html">La technique de la <em>cire perdue</em></h2>
+    <p class="story-body" data-i18n="story_body">Vieille de plus de 4000 ans, la technique Loha Mati — appelée "cire perdue" — est l'une des plus anciennes méthodes de moulage du métal au monde. Chaque pièce est unique, façonnée à la main par des artisans tribaux d'Odisha.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <strong data-i18n="step1_title">Modelage en cire</strong>
+          <span data-i18n="step1_desc">La forme est sculptée dans de la cire d'abeille naturelle</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <strong data-i18n="step2_title">Enrobage d'argile</strong>
+          <span data-i18n="step2_desc">La cire est recouverte d'argile du fleuve local</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <strong data-i18n="step3_title">Fusion du laiton</strong>
+          <span data-i18n="step3_desc">Le métal fondu remplace la cire dans le moule</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-text">
+          <strong data-i18n="step4_title">Finition à la main</strong>
+          <span data-i18n="step4_desc">L'artisan polit et grave les détails finaux</span>
+        </div>
+      </div>
+    </div>
+    <a href="#art" class="btn-primary" data-i18n="story_cta">Voir le processus complet</a>
+  </div>
+</section>
+
+<!-- ─── ARTISANS ─── -->
+<section class="artisans-section" id="artisans">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow" data-i18n="artisan_eyebrow">Les Créateurs</div>
+    <h2 class="section-title" data-i18n="artisan_title_html">Rencontrez <em>nos artisans</em></h2>
+    <p class="section-desc" data-i18n="artisan_desc">Chaque achat soutient directement une famille d'artisans dans les villages d'Odisha.</p>
+  </div>
+  <div class="artisans-grid fade-up">
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-a" style="position:absolute;inset:0;width:100%;height:100%; background-image: url('loha face/suresh.jpg'); background-size: cover; background-position: center;">
+        
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Suresh Mahali</div>
+        <div class="artisan-craft" data-i18n="craft_master">Maître artisan · 22 ans</div>
+        <div class="artisan-village">📍 Karamul, Dhenkanal</div>
+      </div>
+    </div>
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-b" style="position:absolute;inset:0;width:100%;height:100%; background-image: url('loha face/Kamala devi.png'); background-size: cover; background-position: center;">
+        
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Kamala Devi</div>
+        <div class="artisan-craft" data-i18n="craft_jewel">Bijoux Loha Mati · 15 ans</div>
+        <div class="artisan-village">📍 Nuasahi, Dhenkanal</div>
+      </div>
+    </div>
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-c" style="position:absolute;inset:0;width:100%;height:100%; background-image: url('loha face/lakshmi sahoo.png.webp'); background-size: cover; background-position: center;">
+        
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Lakshmi Sahoo</div>
+        <div class="artisan-craft" data-i18n="craft_sculpt">Sculpture · 18 ans</div>
+        <div class="artisan-village">📍 Karamul, Dhenkanal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── ART SECTION ─── -->
+<section class="products-section" id="art" style="padding-top: 0;">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow" data-i18n="art_eyebrow">L'Héritage</div>
+    <h2 class="section-title" data-i18n="art_title_html">L'Art <em>Loha Mati</em></h2>
+    <p class="section-desc" data-i18n="art_desc">Découvrez la beauté intemporelle de notre artisanat à travers ces images captivantes, montrant la finesse de chaque création.</p>
+  </div>
+  <div class="products-grid fade-up">
+    <div class="product-img" style="background-image: url('DSC01017.JPG'); background-size: cover; background-position: center; height: 350px;"></div>
+    <div class="product-img" style="background-image: url('DSC01103.JPG'); background-size: cover; background-position: center; height: 350px;"></div>
+    <div class="product-img" style="background-image: url('DSC01266.JPG'); background-size: cover; background-position: center; height: 350px;"></div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER ─── -->
+<section class="newsletter-section" id="contact">
+  <div class="newsletter-text">
+    <div class="section-eyebrow" data-i18n="news_eyebrow">Restez connecté</div>
+    <h2 class="section-title" data-i18n="news_title_html">10% sur votre <em>première commande</em></h2>
+    <p class="section-desc" data-i18n="news_desc">Inscrivez-vous pour recevoir nos nouvelles collections, les histoires des artisans et des offres exclusives.</p>
+  </div>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="text" data-placeholder-i18n="form_name" placeholder="Votre prénom">
+    <input class="newsletter-input" type="email" data-placeholder-i18n="form_email" placeholder="Votre adresse email">
+    <button class="newsletter-submit" data-i18n="form_submit">S'inscrire et obtenir -10%</button>
+    <div class="newsletter-note" data-i18n="form_note">Pas de spam. Désinscription facile à tout moment.</div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <svg class="footer-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4.5 12h15m-15 0a7.5 7.5 0 1115 0m-15 0a7.5 7.5 0 1015 0" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="index.html" class="logo">Loha Mati<span>.</span></a>
+      </div>
+      <p class="footer-tagline" data-i18n="footer_desc">At Loha Mati, we believe a beautiful home begins with intention. We're more than a platform, we're a team of conscious curators dedicated to selecting only the best for your space.</p>
+      <div class="footer-payments">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">AMEX</span>
+      </div>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_quick">QUICK LINKS</h4>
+      <ul>
+        <li><a href="story.html" data-i18n="nav_story">About Us</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Contact Us</a></li>
+        <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_info">INFORMATION</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer_terms">Terms and Conditions</a></li>
+        <li><a href="#" data-i18n="footer_shipping">Shipping & Delivery</a></li>
+        <li><a href="returns.html" data-i18n="footer_returns">Return/Replacement</a></li>
+        <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col footer-contact-col">
+      <h4 data-i18n="footer_help">NEED HELP</h4>
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <span>+33 1 23 45 67 89</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">✉️</span>
+        <span>bonjour@lohamati.fr</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🕒</span>
+        <span data-i18n="footer_hours">Active (Mon-Sat) 10 AM - 6 PM</span>
+      </div>
+    </div>
+    
+    <div class="footer-col footer-sub-col">
+      <h4 data-i18n="footer_subscribe">SUBSCRIBE TO OUR NEWSLETTER</h4>
+      <div class="footer-subscribe">
+        <input type="email" placeholder="Your e..." class="sub-input">
+        <button class="sub-btn">Subscribe</button>
+      </div>
+      <h4 class="mt-4" data-i18n="footer_follow">GIVE US A FOLLOW</h4>
+      <div class="social-icons">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">x</a>
+        <a href="#" class="social-icon">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 Loha Mati. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">GPay</button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

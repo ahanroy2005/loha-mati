@@ -1,0 +1,16 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Large Assets (Recommended: Optimize these for web before pushing)
+# *.JPG
+# *.png
+# *.webp
+
+# Local environment files
+.env
+.idea/
+.vscode/
+node_modules/
+dist/
+build/

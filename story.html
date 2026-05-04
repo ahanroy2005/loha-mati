@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loha Mati — L'Art Tribal d'Odisha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── LANGUAGE SWITCHER ─── -->
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+  <button class="lang-btn" onclick="setLang('hi')" id="btn-hi">हि</button>
+  <button class="lang-btn" onclick="setLang('od')" id="btn-od">ଓଡ଼</button>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="#" class="logo">Loha Mati<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Boutique</a></li>
+    <li><a href="story.html" data-i18n="nav_story">Notre Histoire</a></li>
+    <li><a href="index.html#artisans" data-i18n="nav_artisans">Les Artisans</a></li>
+    <li><a href="index.html#art" data-i18n="nav_art">L'Art Loha Mati</a></li>
+    <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn">🛒 <span data-i18n="nav_cart">Panier</span> (0)</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+
+<main style="padding: 100px 80px; background: var(--white); max-width: 900px; margin: 0 auto;">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">OUR HERITAGE</div>
+    <h1 class="section-title">About <em>Us</em></h1>
+  </div>
+  
+  <div class="story-body fade-up" style="font-size: 16px; line-height: 1.8; color: var(--ink-md); margin-bottom: 80px;">
+    <p style="margin-bottom: 24px;">We are a design-led brand rooted in Dhokra, one of India’s oldest metal casting traditions. Working closely with artisan communities, we reinterpret this ancient technique into objects that bridge past and present.</p>
+    <p style="margin-bottom: 24px;">Each piece is entirely handcrafted, bearing the subtle variations that make it unique—pièces uniques shaped by hand. The irregularities are not imperfections, but signatures of time, process, and the human hand, an expression of true savoir-faire.</p>
+    <p style="margin-bottom: 24px;">Our approach is guided by balance, honouring tradition while embracing contemporary design. Through considered forms and restrained aesthetics, we create objects that are tactile, enduring, and quietly distinctive—objets d’art designed to live effortlessly within modern interiors.</p>
+    <p style="margin-bottom: 24px;">At our core, we are not simply preserving a craft; we are contributing to its continuity. By placing Dhokra within a global, contemporary context, we aim to build a dialogue between past and present, between artisan and collector.</p>
+    <p style="margin-bottom: 24px;">Each creation is shaped slowly and intentionally. It carries not only form, but memory of material, of process, of the hands that made it.</p>
+    <p style="margin-bottom: 24px;">We stand for meaningful design rooted in craftsmanship, quality, and cultural integrity. Committed to responsible production, we work in close collaboration with artisans, supporting sustainable practices and fair livelihoods, an approach grounded in artisanat responsable.</p>
+    <p>Our pieces are created for those who value authenticity—objects with presence, purpose, and a story to live with. In each work, we invite you to experience l’art de vivre: to embrace craftsmanship, cherish tradition, and carry beauty into everyday life.</p>
+  </div>
+
+  <div style="margin-bottom: 80px;" class="fade-up">
+    <img src="DSC01103.JPG" alt="Dhokra Art Process" style="width: 100%; height: 500px; object-fit: cover;">
+  </div>
+
+  <div class="section-header fade-up">
+    <h2 class="section-title" style="font-size: 40px;">History of <em>Dhokra</em></h2>
+  </div>
+  
+  <div class="story-body fade-up" style="font-size: 16px; line-height: 1.8; color: var(--ink-md); margin-bottom: 80px;">
+    <p style="margin-bottom: 24px;">Dhokra is one of India’s oldest surviving metal casting traditions, with origins that trace back over 4,000 years. Its earliest expression is often associated with the iconic Dancing Girl of the Indus Valley Civilisation, a small bronze figure that reflects the same lost-wax casting technique still practised by Dhokra artisans today.</p>
+    <p style="margin-bottom: 24px;">At the heart of Dhokra lies this ancient process, known as the lost-wax method. Each piece begins as a core of clay, shaped by hand and layered with beeswax threads to create intricate patterns. This wax model is then encased in another layer of clay and fired in a kiln. As the wax melts away, it leaves behind a cavity into which molten metal, typically brass, is poured. Once cooled, the outer mould is broken to reveal the final form. Because the mould is destroyed in the process, no two pieces can ever be the same.</p>
+    <p style="margin-bottom: 24px;">Historically, Dhokra has been practised by nomadic artisan communities, often referred to as the Dhokra Damar tribes, who moved across regions of eastern and central India. Today, clusters of artisans continue this tradition in states such as West Bengal, Odisha, Chhattisgarh, and Jharkhand. Their work was traditionally tied to ritual and everyday life, creating objects such as deities, tribal figures, ornaments, and functional vessels.</p>
+    <p style="margin-bottom: 24px;">What makes Dhokra distinct is its raw, expressive quality. The visible textures, the linear patterns formed by wax threads, and the organic irregularities all speak of a process that is deeply manual and time intensive. It is a craft shaped not by precision tools, but by memory, skill, and repetition passed down through generations.</p>
+    <p style="margin-bottom: 24px;">Over time, Dhokra has evolved from being primarily ritualistic and utilitarian to finding a place in contemporary design and global markets. Yet, its essence remains unchanged as it is still made slowly, entirely by hand, and in direct dialogue with material and maker.</p>
+    <p>Today, Dhokra stands as more than a craft; it is a living tradition. It carries within it histories of migration, community, and adaptation, continuing to evolve while holding on to the integrity of its origins.</p>
+  </div>
+
+  <div style="margin-bottom: 80px;" class="fade-up">
+    <img src="DSC01041.JPG" alt="Dhokra Art History" style="width: 100%; height: 500px; object-fit: cover;">
+  </div>
+
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">PROCESS</div>
+    <h2 class="section-title" style="font-size: 40px;">The Art of <em>Lost Wax Casting</em></h2>
+  </div>
+
+  <div class="process-steps fade-up" style="max-width: 700px; margin: 0 auto 80px;">
+    <div class="step" style="margin-bottom: 32px;">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">01</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">The Core Sculpting</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">The process begins with gathering clay from local riverbeds. The artisan mixes this clay with rice husk and shapes it into the basic core form of the desired object. This core is then left to dry in the sun.</p>
+      </div>
+    </div>
+    <div class="step" style="margin-bottom: 32px;">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">02</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">Wax Threading</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">Pure beeswax is mixed with resin and nut oil, then extruded through a traditional press to create long, hair-thin threads. The artisan meticulously wraps these threads around the dried clay core, creating the intricate designs, motifs, and textures that define Dhokra art.</p>
+      </div>
+    </div>
+    <div class="step" style="margin-bottom: 32px;">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">03</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">The Outer Mold</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">Once the wax design is complete, it is covered with another layer of fine clay, followed by a thicker layer of clay mixed with cow dung and husk. A small channel (runner) is left open at the top. The entire piece is dried again.</p>
+      </div>
+    </div>
+    <div class="step" style="margin-bottom: 32px;">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">04</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">The "Lost Wax" Firing</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">The clay mold is baked in a traditional wood-fired furnace. As the temperature rises, the wax inside melts and drains out through the channel—hence the term "lost wax" (cire perdue). This leaves a perfect hollow cavity inside the baked clay mold, bearing the exact negative impression of the wax design.</p>
+      </div>
+    </div>
+    <div class="step" style="margin-bottom: 32px;">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">05</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">Metal Casting</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">Scrap brass, bronze, and copper are melted in a crucible at temperatures exceeding 1000°C. The glowing, molten metal is carefully poured into the channel of the hot clay mold, filling the void left by the melted wax.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="font-size: 40px; color: var(--clay);">06</div>
+      <div class="step-text" style="padding-top: 6px;">
+        <strong style="font-size: 18px; margin-bottom: 8px;">The Reveal & Finishing</strong>
+        <p style="font-size: 15px; line-height: 1.6; color: var(--ink-lt);">After cooling, the outer clay shell is broken open to reveal the solidified metal casting. Because the mold must be destroyed, every single Dhokra piece is a unique, unrepeatable original. The piece is then cleaned, polished, and given an antique patina finish.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <svg class="footer-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4.5 12h15m-15 0a7.5 7.5 0 1115 0m-15 0a7.5 7.5 0 1015 0" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="index.html" class="logo">Loha Mati<span>.</span></a>
+      </div>
+      <p class="footer-tagline" data-i18n="footer_desc">At Loha Mati, we believe a beautiful home begins with intention. We're more than a platform, we're a team of conscious curators dedicated to selecting only the best for your space.</p>
+      <div class="footer-payments">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">AMEX</span>
+      </div>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_quick">QUICK LINKS</h4>
+      <ul>
+        <li><a href="story.html" data-i18n="nav_story">About Us</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Contact Us</a></li>
+        <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4 data-i18n="footer_info">INFORMATION</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer_terms">Terms and Conditions</a></li>
+        <li><a href="#" data-i18n="footer_shipping">Shipping & Delivery</a></li>
+        <li><a href="returns.html" data-i18n="footer_returns">Return/Replacement</a></li>
+        <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col footer-contact-col">
+      <h4 data-i18n="footer_help">NEED HELP</h4>
+      <div class="contact-item">
+        <span class="icon">📞</span>
+        <span>+33 1 23 45 67 89</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">✉️</span>
+        <span>bonjour@lohamati.fr</span>
+      </div>
+      <div class="contact-item">
+        <span class="icon">🕒</span>
+        <span data-i18n="footer_hours">Active (Mon-Sat) 10 AM - 6 PM</span>
+      </div>
+    </div>
+    
+    <div class="footer-col footer-sub-col">
+      <h4 data-i18n="footer_subscribe">SUBSCRIBE TO OUR NEWSLETTER</h4>
+      <div class="footer-subscribe">
+        <input type="email" placeholder="Your e..." class="sub-input">
+        <button class="sub-btn">Subscribe</button>
+      </div>
+      <h4 class="mt-4" data-i18n="footer_follow">GIVE US A FOLLOW</h4>
+      <div class="social-icons">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">x</a>
+        <a href="#" class="social-icon">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 Loha Mati. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC01266.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">
+          <svg width="36" height="15" viewBox="0 0 36 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2536 6.84364L13.2538 6.84376C14.0754 6.84376 14.8118 7.15174 15.3448 7.64015C15.8943 8.14376 16.2087 8.84155 16.2087 9.61051C16.2087 10.3795 15.8943 11.0772 15.3448 11.5808C14.8118 12.0692 14.0754 12.3773 13.2538 12.3773L13.2536 12.3773L10.3014 12.3773L10.3014 6.84364H13.2536ZM13.2536 5.25052H8.56391V13.9704H10.3014V12.3773L13.2536 12.3773C14.5361 12.3773 15.6888 11.896 16.5161 11.1378C17.3756 10.3499 17.8427 9.24357 17.8427 8.01691V7.98687V7.98683C17.8427 6.76017 17.3756 5.65381 16.5161 4.86595C15.6888 4.10776 14.5361 3.62646 13.2536 3.62646V5.25052ZM27.0988 5.63185V13.9704H25.3613V12.593H25.3217C24.7828 13.5131 23.6394 14.1506 22.3725 14.1506C20.3151 14.1506 18.7303 12.721 18.7303 10.7417V10.7416V10.7115C18.7303 8.73228 20.3151 7.30268 22.3725 7.30268C23.6394 7.30268 24.7828 7.94017 25.3217 8.86036H25.3613V5.63185H27.0988ZM22.9567 8.78859C21.8213 8.78859 20.8415 9.61058 20.8415 10.7416C20.8415 11.8727 21.8213 12.6947 22.9567 12.6947C24.0921 12.6947 25.0719 11.8727 25.0719 10.7416C25.0719 9.61058 24.0921 8.78859 22.9567 8.78859ZM32.7483 14.1506C32.0622 14.1506 31.3934 13.9877 30.7963 13.682L31.6373 12.3022C32.0305 12.5152 32.4416 12.6186 32.8458 12.6186C33.3614 12.6186 33.626 12.3611 33.626 11.9687V11.9386L28.1639 5.63185H30.1345L34.5824 10.8711H34.6219L39.0699 5.63185H41.0405L35.4385 12.1648V12.1949C35.4385 13.3855 34.4093 14.1506 32.7483 14.1506Z" fill="white"/>
+            <path d="M5.13264 5.92215C5.81156 5.92215 6.36852 6.10862 6.78651 6.46328C7.2045 6.81793 7.42436 7.29177 7.42436 7.84831V10.7675H5.85045V9.61066H5.78768C5.39417 10.5186 4.70617 10.9925 3.75471 10.9925C2.94639 10.9925 2.27435 10.7644 1.76189 10.3159C1.25585 9.86095 0.998466 9.29345 0.998466 8.64147C0.998466 7.95759 1.27216 7.40428 1.80265 6.96325C2.33959 6.51576 3.09062 6.28691 4.02537 6.28691C4.82133 6.28691 5.48545 6.42597 6.00288 6.69085V6.52988C6.00288 6.11586 5.84534 5.75988 5.51877 5.4619C5.20436 5.16393 4.8118 5.00843 4.31682 5.00843C3.51351 5.00843 2.87102 5.34094 2.42065 5.98687L1.13941 5.17887C1.9961 3.93175 3.09459 3.28424 4.3986 3.28424C5.13264 5.92215 5.13264 5.92215ZM2.56947 8.69446C2.56947 9.00888 2.70138 9.28189 2.94493 9.50284C3.195 9.71754 3.52494 9.82989 3.91689 9.82989C4.54519 9.82989 5.06648 9.59389 5.45266 9.1159C5.84521 8.63152 6.03798 8.09358 6.03798 7.49557C5.6325 7.19758 5.0487 7.03842 4.25413 7.03842C3.76566 7.03842 3.36437 7.15343 3.03152 7.37891C2.70522 7.59792 2.56947 7.91578 2.56947 8.69446Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

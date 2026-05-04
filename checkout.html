@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement — Loha Mati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .checkout-page {
+    padding: 80px;
+    background: var(--cream);
+    min-height: 80vh;
+  }
+  .checkout-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+  }
+  .checkout-form {
+    background: var(--white);
+    padding: 48px;
+  }
+  .checkout-summary {
+    background: var(--cream-dk);
+    padding: 48px;
+    align-self: flex-start;
+  }
+  .form-section {
+    margin-bottom: 40px;
+  }
+  .form-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cream-dk);
+  }
+  .input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .input-group label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-lt);
+  }
+  .input-group input, .input-group select {
+    padding: 16px;
+    border: 1px solid var(--ink-lt);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-group input:focus, .input-group select:focus {
+    border-color: var(--clay);
+  }
+  .checkout-summary h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .order-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .oi-img {
+    width: 60px; height: 60px;
+    background: var(--clay);
+  }
+  .oi-details { flex: 1; }
+  .oi-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .oi-qty { font-size: 12px; color: var(--ink-lt); }
+  .oi-price { font-size: 14px; font-weight: 500; color: var(--ink); }
+  
+  .summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--ink-md);
+    margin-bottom: 12px;
+  }
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+  .pay-btn {
+    width: 100%;
+    margin-top: 32px;
+    padding: 20px;
+    font-size: 14px;
+  }
+  @media (max-width: 900px) {
+    .checkout-page { padding: 40px 24px; }
+    .checkout-grid { grid-template-columns: 1fr; }
+    .checkout-form, .checkout-summary { padding: 24px; }
+    .input-row { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header" style="padding: 40px 80px;">
+  <h1 class="section-title">Validation de la commande</h1>
+</div>
+
+<section class="checkout-page fade-up">
+  <div class="checkout-grid">
+    
+    <div class="checkout-form">
+      <form action="order-confirmation.html">
+        <div class="form-section">
+          <h3>Informations de contact</h3>
+          <div class="input-group" style="margin-bottom: 20px;">
+            <label>Adresse e-mail</label>
+            <input type="email" required placeholder="nom@exemple.com">
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Adresse de livraison</h3>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Prénom</label>
+              <input type="text" required>
+            </div>
+            <div class="input-group">
+              <label>Nom</label>
+              <input type="text" required>
+            </div>
+          </div>
+          <div class="input-group" style="margin-bottom: 20px;">
+            <label>Adresse</label>
+            <input type="text" required placeholder="123 Rue de la République">
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Code Postal</label>
+              <input type="text" required placeholder="75001">
+            </div>
+            <div class="input-group">
+              <label>Ville</label>
+              <input type="text" required placeholder="Paris">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Pays</label>
+            <select required>
+              <option value="FR">France</option>
+              <option value="BE">Belgique</option>
+              <option value="CH">Suisse</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Paiement</h3>
+          <div class="input-group" style="margin-bottom: 20px;">
+            <label>Numéro de carte</label>
+            <input type="text" required placeholder="0000 0000 0000 0000">
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Date d'expiration</label>
+              <input type="text" required placeholder="MM/AA">
+            </div>
+            <div class="input-group">
+              <label>CVC</label>
+              <input type="text" required placeholder="123">
+            </div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-primary pay-btn" onclick="event.preventDefault(); window.location.href='order-confirmation.html'">Payer 175,00 €</button>
+      </form>
+    </div>
+
+    <div class="checkout-summary">
+      <h3>Résumé</h3>
+      
+      <div class="order-item">
+        <div class="oi-img" style="background: linear-gradient(135deg, #3A2010 0%, #6B3A1A 50%, #A85A2A 100%);"></div>
+        <div class="oi-details">
+          <div class="oi-title">Danseuse Tribale</div>
+          <div class="oi-qty">Quantité: 1</div>
+        </div>
+        <div class="oi-price">€68</div>
+      </div>
+      
+      <div class="order-item">
+        <div class="oi-img" style="background: linear-gradient(135deg, #1A2A2A 0%, #2A4A3A 50%, #4A7A5A 100%);"></div>
+        <div class="oi-details">
+          <div class="oi-title">Éléphant Royal</div>
+          <div class="oi-qty">Quantité: 1</div>
+        </div>
+        <div class="oi-price">€95</div>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <div class="summary-line">
+          <span>Sous-total</span>
+          <span>€163,00</span>
+        </div>
+        <div class="summary-line">
+          <span>Livraison (Colissimo Standard)</span>
+          <span>€12,00</span>
+        </div>
+        <div class="summary-total">
+          <span>Total à payer</span>
+          <span>€175,00</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="main.js"></script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">
+          <svg width="36" height="15" viewBox="0 0 36 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2536 6.84364L13.2538 6.84376C14.0754 6.84376 14.8118 7.15174 15.3448 7.64015C15.8943 8.14376 16.2087 8.84155 16.2087 9.61051C16.2087 10.3795 15.8943 11.0772 15.3448 11.5808C14.8118 12.0692 14.0754 12.3773 13.2538 12.3773L13.2536 12.3773L10.3014 12.3773L10.3014 6.84364H13.2536ZM13.2536 5.25052H8.56391V13.9704H10.3014V12.3773L13.2536 12.3773C14.5361 12.3773 15.6888 11.896 16.5161 11.1378C17.3756 10.3499 17.8427 9.24357 17.8427 8.01691V7.98687V7.98683C17.8427 6.76017 17.3756 5.65381 16.5161 4.86595C15.6888 4.10776 14.5361 3.62646 13.2536 3.62646V5.25052ZM27.0988 5.63185V13.9704H25.3613V12.593H25.3217C24.7828 13.5131 23.6394 14.1506 22.3725 14.1506C20.3151 14.1506 18.7303 12.721 18.7303 10.7417V10.7416V10.7115C18.7303 8.73228 20.3151 7.30268 22.3725 7.30268C23.6394 7.30268 24.7828 7.94017 25.3217 8.86036H25.3613V5.63185H27.0988ZM22.9567 8.78859C21.8213 8.78859 20.8415 9.61058 20.8415 10.7416C20.8415 11.8727 21.8213 12.6947 22.9567 12.6947C24.0921 12.6947 25.0719 11.8727 25.0719 10.7416C25.0719 9.61058 24.0921 8.78859 22.9567 8.78859ZM32.7483 14.1506C32.0622 14.1506 31.3934 13.9877 30.7963 13.682L31.6373 12.3022C32.0305 12.5152 32.4416 12.6186 32.8458 12.6186C33.3614 12.6186 33.626 12.3611 33.626 11.9687V11.9386L28.1639 5.63185H30.1345L34.5824 10.8711H34.6219L39.0699 5.63185H41.0405L35.4385 12.1648V12.1949C35.4385 13.3855 34.4093 14.1506 32.7483 14.1506Z" fill="white"/>
+            <path d="M5.13264 5.92215C5.81156 5.92215 6.36852 6.10862 6.78651 6.46328C7.2045 6.81793 7.42436 7.29177 7.42436 7.84831V10.7675H5.85045V9.61066H5.78768C5.39417 10.5186 4.70617 10.9925 3.75471 10.9925C2.94639 10.9925 2.27435 10.7644 1.76189 10.3159C1.25585 9.86095 0.998466 9.29345 0.998466 8.64147C0.998466 7.95759 1.27216 7.40428 1.80265 6.96325C2.33959 6.51576 3.09062 6.28691 4.02537 6.28691C4.82133 6.28691 5.48545 6.42597 6.00288 6.69085V6.52988C6.00288 6.11586 5.84534 5.75988 5.51877 5.4619C5.20436 5.16393 4.8118 5.00843 4.31682 5.00843C3.51351 5.00843 2.87102 5.34094 2.42065 5.98687L1.13941 5.17887C1.9961 3.93175 3.09459 3.28424 4.3986 3.28424C5.13264 5.92215 5.13264 5.92215ZM2.56947 8.69446C2.56947 9.00888 2.70138 9.28189 2.94493 9.50284C3.195 9.71754 3.52494 9.82989 3.91689 9.82989C4.54519 9.82989 5.06648 9.59389 5.45266 9.1159C5.84521 8.63152 6.03798 8.09358 6.03798 7.49557C5.6325 7.19758 5.0487 7.03842 4.25413 7.03842C3.76566 7.03842 3.36437 7.15343 3.03152 7.37891C2.70522 7.59792 2.56947 7.91578 2.56947 8.69446Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

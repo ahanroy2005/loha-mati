@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhokra — L'Art Tribal d'Odisha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --clay:     #C4713A;
+    --clay-lt:  #E8A87C;
+    --clay-dk:  #8B4A1E;
+    --brass:    #B8860B;
+    --brass-lt: #D4A843;
+    --cream:    #FAF6EF;
+    --cream-dk: #F0E8D8;
+    --ink:      #1A1410;
+    --ink-md:   #4A3728;
+    --ink-lt:   #7A6558;
+    --white:    #FFFDF9;
+    --gold:     #C9A84C;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ─── LANGUAGE SWITCHER ─── */
+  .lang-bar {
+    background: var(--ink);
+    padding: 8px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.65);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--clay);
+    border-color: var(--clay);
+    color: #fff;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--cream-dk);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .logo span { color: var(--clay); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-md);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--clay); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .cart-btn {
+    background: var(--clay);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cart-btn:hover { background: var(--clay-dk); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 24px; height: 1.5px; background: var(--ink); display: block; transition: all 0.3s; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    background: var(--white);
+    position: relative;
+  }
+  .hero-text::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--clay-lt), transparent);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--clay);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--clay);
+  }
+  .hero-subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-lt);
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--clay); }
+  .btn-outline {
+    background: none;
+    color: var(--ink);
+    padding: 15px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink-lt);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--clay); color: var(--clay); }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--cream-dk);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--clay);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-lt);
+    margin-top: 4px;
+  }
+
+  .hero-visual {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2A1A0E 0%, #4A2A15 40%, #8B4A1E 70%, #C4713A 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .dhokra-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: radial-gradient(circle, #C4713A 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .craft-icon {
+    width: 180px;
+    height: 180px;
+    opacity: 0.6;
+  }
+  .hero-img-label {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+  }
+  .photo-note {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 20px;
+    border: 1px dashed rgba(255,255,255,0.15);
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-wrap {
+    background: var(--clay);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-inner span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    padding: 0 40px;
+  }
+  .marquee-inner span::after {
+    content: '✦';
+    margin-left: 40px;
+    opacity: 0.5;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--cream-dk);
+    padding: 28px 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .trust-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .trust-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .trust-sub {
+    font-size: 11px;
+    color: var(--ink-lt);
+    margin-top: 2px;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--clay); }
+  .section-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-lt);
+    max-width: 520px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+  }
+
+  /* ─── FEATURED PRODUCTS ─── */
+  .products-section {
+    padding: 100px 80px;
+    background: var(--cream);
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .product-card {
+    background: var(--white);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,20,16,0.12); }
+  .product-img {
+    height: 300px;
+    background: linear-gradient(135deg, #3A2010 0%, #6B3A1A 50%, #A85A2A 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-img-2 { background: linear-gradient(135deg, #1A2A2A 0%, #2A4A3A 50%, #4A7A5A 100%); }
+  .product-img-3 { background: linear-gradient(135deg, #2A1A2A 0%, #4A2A4A 50%, #7A4A6A 100%); }
+  .product-img-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px;
+    border: 1px dashed rgba(255,255,255,0.12);
+  }
+  .product-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--clay);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+  }
+  .product-info { padding: 24px; }
+  .product-cat {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .product-artisan {
+    font-size: 12px;
+    color: var(--ink-lt);
+    margin-bottom: 18px;
+  }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid var(--cream-dk);
+  }
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+  .product-price span { font-size: 14px; color: var(--ink-lt); }
+  .add-btn {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-btn:hover { background: var(--clay); }
+
+  /* ─── STORY SECTION ─── */
+  .story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .story-visual {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+  }
+  .story-img-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #1A0E08 0%, #3A1A08 35%, #7A3A10 70%, #B86830 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .wax-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(196,113,58,0.06) 0px, rgba(196,113,58,0.06) 1px, transparent 1px, transparent 20px),
+      repeating-linear-gradient(-45deg, rgba(196,113,58,0.06) 0px, rgba(196,113,58,0.06) 1px, transparent 1px, transparent 20px);
+  }
+  .story-quote {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(26,14,8,0.95), transparent);
+    padding: 60px 48px 48px;
+  }
+  .story-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+  .story-quote cite {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-lt);
+    margin-top: 12px;
+    display: block;
+    font-style: normal;
+  }
+  .story-text {
+    background: var(--cream-dk);
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .story-text .section-eyebrow { text-align: left; }
+  .story-text .section-title { text-align: left; font-size: 40px; }
+  .story-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--ink-md);
+    margin-top: 24px;
+    margin-bottom: 36px;
+  }
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--clay-lt);
+    line-height: 1;
+    min-width: 32px;
+  }
+  .step-text strong {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .step-text span { font-size: 12px; color: var(--ink-lt); }
+
+  /* ─── ARTISANS SECTION ─── */
+  .artisans-section {
+    background: var(--white);
+    padding: 100px 80px;
+  }
+  .artisans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .artisan-card {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    cursor: pointer;
+  }
+  .artisan-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+  }
+  .artisan-card:hover .artisan-img { transform: scale(1.05); }
+  .artisan-img-a { background: linear-gradient(160deg, #2A1A10 0%, #5A3A20 100%); }
+  .artisan-img-b { background: linear-gradient(160deg, #101A2A 0%, #203A5A 100%); }
+  .artisan-img-c { background: linear-gradient(160deg, #1A2A1A 0%, #2A5A2A 100%); }
+  .artisan-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,20,16,0.92) 0%, rgba(26,20,16,0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+    transition: all 0.3s;
+  }
+  .artisan-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .artisan-craft {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay-lt);
+    margin-bottom: 10px;
+  }
+  .artisan-village {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .artisan-img-note {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px;
+    border: 1px dashed rgba(255,255,255,0.1);
+    white-space: nowrap;
+  }
+
+  /* ─── NEWSLETTER ─── */
+  .newsletter-section {
+    background: var(--ink);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .newsletter-text .section-eyebrow { color: var(--clay-lt); }
+  .newsletter-text .section-title { color: #fff; text-align: left; font-size: 36px; }
+  .newsletter-text .section-desc { color: rgba(255,255,255,0.5); text-align: left; margin: 12px 0 0; }
+  .newsletter-form { display: flex; flex-direction: column; gap: 14px; }
+  .newsletter-input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    padding: 16px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.3); }
+  .newsletter-input:focus { border-color: var(--clay); }
+  .newsletter-submit {
+    background: var(--clay);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .newsletter-submit:hover { background: var(--clay-dk); }
+  .newsletter-note { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 60px 80px 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .logo { color: #fff; font-size: 22px; }
+  .footer-brand .logo span { color: var(--clay-lt); }
+  .footer-tagline {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.75;
+    margin-top: 16px;
+    max-width: 260px;
+  }
+  .footer-col h4 {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--clay-lt); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.28);
+  }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.28);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 60px 24px; }
+    .hero-visual { height: 320px; }
+    .trust-strip { grid-template-columns: repeat(2, 1fr); padding: 24px; }
+    .products-section { padding: 60px 24px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .story-section { grid-template-columns: 1fr; }
+    .story-text { padding: 48px 24px; }
+    .artisans-section { padding: 60px 24px; }
+    .artisans-grid { grid-template-columns: 1fr; }
+    .artisan-card { height: 280px; }
+    .newsletter-section { grid-template-columns: 1fr; padding: 48px 24px; }
+    footer { padding: 48px 24px 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .lang-bar { padding: 8px 20px; }
+    .hero-stats { gap: 24px; }
+  }
+
+  /* ─── FADE IN ANIMATION ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── LANGUAGE SWITCHER ─── -->
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+  <button class="lang-btn" onclick="setLang('hi')" id="btn-hi">हि</button>
+  <button class="lang-btn" onclick="setLang('od')" id="btn-od">ଓଡ଼</button>
+</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="#" class="logo">Dhokra<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#shop" data-i18n="nav_shop">Boutique</a></li>
+    <li><a href="#story" data-i18n="nav_story">Notre Histoire</a></li>
+    <li><a href="#artisans" data-i18n="nav_artisans">Les Artisans</a></li>
+    <li><a href="#art" data-i18n="nav_art">L'Art Dhokra</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn">🛒 <span data-i18n="nav_cart">Panier</span> (0)</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Art Tribal · Odisha, Inde · 4000 ans de tradition</div>
+    <h1 class="hero-title" data-i18n="hero_title_html">L'art de la <em>cire perdue</em> livré en France</h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Chaque pièce est façonnée à la main par des artisans d'Odisha, en utilisant la technique ancestrale de la cire perdue vieille de 4000 ans. Unique, éthique, authentique.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn-primary" data-i18n="hero_cta1">Découvrir la boutique</a>
+      <a href="#story" class="btn-outline" data-i18n="hero_cta2">Notre histoire</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4000</div>
+        <div class="stat-label" data-i18n="stat1">Ans d'histoire</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label" data-i18n="stat2">Fait main</div>
+      </div>
+      <div>
+        <div class="stat-num">32+</div>
+        <div class="stat-label" data-i18n="stat3">Artisans soutenus</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-placeholder">
+      <div class="dhokra-pattern"></div>
+      <div class="photo-note" data-i18n="photo_placeholder">Your Dhokra craft photo here</div>
+    </div>
+    <div class="hero-img-label" data-i18n="hero_caption">Artisan au travail · Village de Raghurajpur, Odisha</div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-wrap">
+  <div class="marquee-inner" id="marquee-text">
+    <span data-i18n="marquee1">Commerce Équitable</span>
+    <span data-i18n="marquee2">Livraison France</span>
+    <span data-i18n="marquee3">Pièce Unique</span>
+    <span data-i18n="marquee4">Artisans d'Odisha</span>
+    <span data-i18n="marquee5">Technique ancestrale</span>
+    <span data-i18n="marquee1">Commerce Équitable</span>
+    <span data-i18n="marquee2">Livraison France</span>
+    <span data-i18n="marquee3">Pièce Unique</span>
+    <span data-i18n="marquee4">Artisans d'Odisha</span>
+    <span data-i18n="marquee5">Technique ancestrale</span>
+  </div>
+</div>
+
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <div class="trust-icon">🤝</div>
+    <div>
+      <div class="trust-title" data-i18n="trust1_title">Commerce Équitable</div>
+      <div class="trust-sub" data-i18n="trust1_sub">Artisans payés justement</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🚚</div>
+    <div>
+      <div class="trust-title" data-i18n="trust2_title">Livraison en France</div>
+      <div class="trust-sub" data-i18n="trust2_sub">7–14 jours ouvrés</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">✦</div>
+    <div>
+      <div class="trust-title" data-i18n="trust3_title">Pièce Unique</div>
+      <div class="trust-sub" data-i18n="trust3_sub">Chaque œuvre est originale</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">↩</div>
+    <div>
+      <div class="trust-title" data-i18n="trust4_title">Retours Faciles</div>
+      <div class="trust-sub" data-i18n="trust4_sub">14 jours, sans questions</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURED PRODUCTS ─── -->
+<section class="products-section" id="shop">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow" data-i18n="prod_eyebrow">Collection</div>
+    <h2 class="section-title" data-i18n="prod_title_html">Pièces <em>choisies</em></h2>
+    <p class="section-desc" data-i18n="prod_desc">Chaque objet est forgé dans le laiton par la méthode de la cire perdue — une technique inchangée depuis 4000 ans.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-img">
+        <div class="product-badge" data-i18n="badge_new">Nouveau</div>
+        <div class="product-img-note" data-i18n="photo_placeholder">Your product photo here</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_deco">Décoration</div>
+        <div class="product-name" data-i18n="prod1_name">Danseuse Tribale</div>
+        <div class="product-artisan" data-i18n="prod1_artisan">par Suresh Mahali · Raghurajpur</div>
+        <div class="product-footer">
+          <div class="product-price">€68 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card fade-up" style="transition-delay:0.15s">
+      <div class="product-img product-img-2">
+        <div class="product-badge" data-i18n="badge_bestseller">Best-seller</div>
+        <div class="product-img-note" data-i18n="photo_placeholder">Your product photo here</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_sculpture">Sculpture</div>
+        <div class="product-name" data-i18n="prod2_name">Éléphant Royal</div>
+        <div class="product-artisan" data-i18n="prod2_artisan">par Kamala Devi · Dhenkanal</div>
+        <div class="product-footer">
+          <div class="product-price">€95 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card fade-up" style="transition-delay:0.3s">
+      <div class="product-img product-img-3">
+        <div class="product-badge" data-i18n="badge_unique">Pièce unique</div>
+        <div class="product-img-note" data-i18n="photo_placeholder">Your product photo here</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat" data-i18n="cat_bijoux">Bijoux</div>
+        <div class="product-name" data-i18n="prod3_name">Collier Tribal</div>
+        <div class="product-artisan" data-i18n="prod3_artisan">par Lakshmi Sahoo · Baripada</div>
+        <div class="product-footer">
+          <div class="product-price">€42 <span data-i18n="incl_tax">TTC</span></div>
+          <button class="add-btn" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STORY SECTION ─── -->
+<section class="story-section" id="story">
+  <div class="story-visual">
+    <div class="story-img-inner">
+      <div class="wax-pattern"></div>
+      <div class="photo-note" style="color:rgba(255,255,255,0.2);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:12px;border:1px dashed rgba(255,255,255,0.1)" data-i18n="photo_process">Craft process photo here</div>
+    </div>
+    <div class="story-quote">
+      <blockquote data-i18n="story_quote">"Nous façonnons le métal comme nos ancêtres l'ont fait pendant des millénaires — avec de la cire d'abeille, de l'argile et du feu."</blockquote>
+      <cite data-i18n="story_cite">— Suresh Mahali, Artisan Dhokra, Raghurajpur</cite>
+    </div>
+  </div>
+  <div class="story-text">
+    <div class="section-eyebrow" data-i18n="story_eyebrow">Technique Ancestrale</div>
+    <h2 class="section-title" data-i18n="story_title_html">La technique de la <em>cire perdue</em></h2>
+    <p class="story-body" data-i18n="story_body">Vieille de plus de 4000 ans, la technique Dhokra — appelée "cire perdue" — est l'une des plus anciennes méthodes de moulage du métal au monde. Chaque pièce est unique, façonnée à la main par des artisans tribaux d'Odisha.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <strong data-i18n="step1_title">Modelage en cire</strong>
+          <span data-i18n="step1_desc">La forme est sculptée dans de la cire d'abeille naturelle</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <strong data-i18n="step2_title">Enrobage d'argile</strong>
+          <span data-i18n="step2_desc">La cire est recouverte d'argile du fleuve local</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <strong data-i18n="step3_title">Fusion du laiton</strong>
+          <span data-i18n="step3_desc">Le métal fondu remplace la cire dans le moule</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-text">
+          <strong data-i18n="step4_title">Finition à la main</strong>
+          <span data-i18n="step4_desc">L'artisan polit et grave les détails finaux</span>
+        </div>
+      </div>
+    </div>
+    <a href="#art" class="btn-primary" data-i18n="story_cta">Voir le processus complet</a>
+  </div>
+</section>
+
+<!-- ─── ARTISANS ─── -->
+<section class="artisans-section" id="artisans">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow" data-i18n="artisan_eyebrow">Les Créateurs</div>
+    <h2 class="section-title" data-i18n="artisan_title_html">Rencontrez <em>nos artisans</em></h2>
+    <p class="section-desc" data-i18n="artisan_desc">Chaque achat soutient directement une famille d'artisans dans les villages d'Odisha.</p>
+  </div>
+  <div class="artisans-grid fade-up">
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-a" style="position:absolute;inset:0;width:100%;height:100%">
+        <div class="artisan-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Suresh Mahali</div>
+        <div class="artisan-craft" data-i18n="craft_master">Maître artisan · 22 ans</div>
+        <div class="artisan-village">📍 Raghurajpur, Puri</div>
+      </div>
+    </div>
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-b" style="position:absolute;inset:0;width:100%;height:100%">
+        <div class="artisan-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Kamala Devi</div>
+        <div class="artisan-craft" data-i18n="craft_jewel">Bijoux Dhokra · 15 ans</div>
+        <div class="artisan-village">📍 Dhenkanal, Odisha</div>
+      </div>
+    </div>
+    <div class="artisan-card">
+      <div class="artisan-img artisan-img-c" style="position:absolute;inset:0;width:100%;height:100%">
+        <div class="artisan-img-note" data-i18n="photo_artisan">Artisan photo here</div>
+      </div>
+      <div class="artisan-overlay">
+        <div class="artisan-name">Lakshmi Sahoo</div>
+        <div class="artisan-craft" data-i18n="craft_sculpt">Sculpture · 18 ans</div>
+        <div class="artisan-village">📍 Baripada, Mayurbhanj</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER ─── -->
+<section class="newsletter-section" id="contact">
+  <div class="newsletter-text">
+    <div class="section-eyebrow" data-i18n="news_eyebrow">Restez connecté</div>
+    <h2 class="section-title" data-i18n="news_title_html">10% sur votre <em>première commande</em></h2>
+    <p class="section-desc" data-i18n="news_desc">Inscrivez-vous pour recevoir nos nouvelles collections, les histoires des artisans et des offres exclusives.</p>
+  </div>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="text" data-placeholder-i18n="form_name" placeholder="Votre prénom">
+    <input class="newsletter-input" type="email" data-placeholder-i18n="form_email" placeholder="Votre adresse email">
+    <button class="newsletter-submit" data-i18n="form_submit">S'inscrire et obtenir -10%</button>
+    <div class="newsletter-note" data-i18n="form_note">Pas de spam. Désinscription facile à tout moment.</div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">Dhokra<span>.</span></a>
+      <p class="footer-tagline" data-i18n="footer_tagline">L'art tribal d'Odisha, façonné à la main et livré directement en France depuis les villages d'artisans.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_shop">Boutique</h4>
+      <ul>
+        <li><a href="#" data-i18n="cat_deco">Décoration</a></li>
+        <li><a href="#" data-i18n="cat_bijoux">Bijoux</a></li>
+        <li><a href="#" data-i18n="cat_sculpture">Sculptures</a></li>
+        <li><a href="#" data-i18n="badge_new">Nouveautés</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_info">Informations</h4>
+      <ul>
+        <li><a href="#" data-i18n="nav_story">Notre Histoire</a></li>
+        <li><a href="#" data-i18n="nav_artisans">Les Artisans</a></li>
+        <li><a href="#" data-i18n="nav_art">L'Art Dhokra</a></li>
+        <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_help">Aide</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer_shipping">Livraison</a></li>
+        <li><a href="#" data-i18n="footer_returns">Retours</a></li>
+        <li><a href="#" data-i18n="footer_faq">FAQ</a></li>
+        <li><a href="#" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 Dhokra. Tous droits réservés.</div>
+    <div class="footer-legal">
+      <a href="#" data-i18n="footer_legal1">Mentions légales</a>
+      <a href="#" data-i18n="footer_legal2">Confidentialité</a>
+      <a href="#" data-i18n="footer_cookies">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+// TRANSLATION DATA
+// ═══════════════════════════════════════════════
+const translations = {
+  en: {
+    nav_shop: "Shop", nav_story: "Our Story", nav_artisans: "Artisans",
+    nav_art: "Dhokra Art", nav_contact: "Contact", nav_cart: "Cart",
+    hero_eyebrow: "Tribal Art · Odisha, India · 4000 years of tradition",
+    hero_title_html: "The <em>lost-wax</em> art delivered to France",
+    hero_subtitle: "Every piece is handcrafted by artisans from Odisha using the ancient lost-wax casting technique — 4000 years old. Unique, ethical, authentic.",
+    hero_cta1: "Explore the Shop", hero_cta2: "Our Story",
+    stat1: "Years of history", stat2: "Handmade", stat3: "Artisans supported",
+    photo_placeholder: "Your Dhokra craft photo here",
+    hero_caption: "Artisan at work · Raghurajpur village, Odisha",
+    marquee1: "Fair Trade", marquee2: "Delivery to France", marquee3: "Unique Pieces",
+    marquee4: "Odisha Artisans", marquee5: "Ancient technique",
+    trust1_title: "Fair Trade", trust1_sub: "Artisans paid fairly",
+    trust2_title: "Delivery to France", trust2_sub: "7–14 working days",
+    trust3_title: "Unique Pieces", trust3_sub: "Every work is original",
+    trust4_title: "Easy Returns", trust4_sub: "14 days, no questions",
+    prod_eyebrow: "Collection", prod_title_html: "<em>Featured</em> pieces",
+    prod_desc: "Each object is cast in brass using the lost-wax method — a technique unchanged for 4000 years.",
+    badge_new: "New", badge_bestseller: "Best-seller", badge_unique: "Unique piece",
+    cat_deco: "Decoration", cat_sculpture: "Sculpture", cat_bijoux: "Jewellery",
+    prod1_name: "Tribal Dancer", prod1_artisan: "by Suresh Mahali · Raghurajpur",
+    prod2_name: "Royal Elephant", prod2_artisan: "by Kamala Devi · Dhenkanal",
+    prod3_name: "Tribal Necklace", prod3_artisan: "by Lakshmi Sahoo · Baripada",
+    incl_tax: "incl. tax",
+    story_eyebrow: "Ancient Technique",
+    story_title_html: "The <em>lost-wax</em> technique",
+    story_body: "Over 4000 years old, the Dhokra technique — called 'lost-wax' — is one of the oldest metal casting methods in the world. Each piece is unique, handcrafted by tribal artisans of Odisha.",
+    story_quote: '"We shape metal as our ancestors did for millennia — with beeswax, clay and fire."',
+    story_cite: "— Suresh Mahali, Dhokra Artisan, Raghurajpur",
+    step1_title: "Wax modelling", step1_desc: "The shape is sculpted in natural beeswax",
+    step2_title: "Clay coating", step2_desc: "The wax is coated with local river clay",
+    step3_title: "Brass melting", step3_desc: "Molten metal replaces the wax in the mould",
+    step4_title: "Hand finishing", step4_desc: "The artisan polishes and engraves final details",
+    story_cta: "See the full process",
+    photo_process: "Craft process photo here",
+    artisan_eyebrow: "The Creators",
+    artisan_title_html: "Meet <em>our artisans</em>",
+    artisan_desc: "Every purchase directly supports an artisan family in the villages of Odisha.",
+    craft_master: "Master artisan · 22 years", craft_jewel: "Dhokra jewellery · 15 years",
+    craft_sculpt: "Sculpture · 18 years", photo_artisan: "Artisan photo here",
+    news_eyebrow: "Stay connected",
+    news_title_html: "10% off your <em>first order</em>",
+    news_desc: "Sign up to receive new collections, artisan stories and exclusive offers.",
+    form_name: "Your first name", form_email: "Your email address",
+    form_submit: "Subscribe and get -10%",
+    form_note: "No spam. Easy unsubscribe at any time.",
+    footer_tagline: "Odisha tribal art, handcrafted and delivered directly to France from artisan villages.",
+    footer_shop: "Shop", footer_info: "Information", footer_help: "Help",
+    footer_blog: "Blog", footer_shipping: "Shipping", footer_returns: "Returns",
+    footer_faq: "FAQ", footer_copy: "© 2025 Dhokra. All rights reserved.",
+    footer_legal1: "Legal notice", footer_legal2: "Privacy", footer_cookies: "Cookies",
+  },
+  fr: {
+    nav_shop: "Boutique", nav_story: "Notre Histoire", nav_artisans: "Les Artisans",
+    nav_art: "L'Art Dhokra", nav_contact: "Contact", nav_cart: "Panier",
+    hero_eyebrow: "Art Tribal · Odisha, Inde · 4000 ans de tradition",
+    hero_title_html: "L'art de la <em>cire perdue</em> livré en France",
+    hero_subtitle: "Chaque pièce est façonnée à la main par des artisans d'Odisha, en utilisant la technique ancestrale de la cire perdue vieille de 4000 ans. Unique, éthique, authentique.",
+    hero_cta1: "Découvrir la boutique", hero_cta2: "Notre histoire",
+    stat1: "Ans d'histoire", stat2: "Fait main", stat3: "Artisans soutenus",
+    photo_placeholder: "Votre photo Dhokra ici",
+    hero_caption: "Artisan au travail · Village de Raghurajpur, Odisha",
+    marquee1: "Commerce Équitable", marquee2: "Livraison France", marquee3: "Pièce Unique",
+    marquee4: "Artisans d'Odisha", marquee5: "Technique ancestrale",
+    trust1_title: "Commerce Équitable", trust1_sub: "Artisans payés justement",
+    trust2_title: "Livraison en France", trust2_sub: "7–14 jours ouvrés",
+    trust3_title: "Pièce Unique", trust3_sub: "Chaque œuvre est originale",
+    trust4_title: "Retours Faciles", trust4_sub: "14 jours, sans questions",
+    prod_eyebrow: "Collection", prod_title_html: "Pièces <em>choisies</em>",
+    prod_desc: "Chaque objet est forgé dans le laiton par la méthode de la cire perdue — une technique inchangée depuis 4000 ans.",
+    badge_new: "Nouveau", badge_bestseller: "Best-seller", badge_unique: "Pièce unique",
+    cat_deco: "Décoration", cat_sculpture: "Sculpture", cat_bijoux: "Bijoux",
+    prod1_name: "Danseuse Tribale", prod1_artisan: "par Suresh Mahali · Raghurajpur",
+    prod2_name: "Éléphant Royal", prod2_artisan: "par Kamala Devi · Dhenkanal",
+    prod3_name: "Collier Tribal", prod3_artisan: "par Lakshmi Sahoo · Baripada",
+    incl_tax: "TTC",
+    story_eyebrow: "Technique Ancestrale",
+    story_title_html: "La technique de la <em>cire perdue</em>",
+    story_body: "Vieille de plus de 4000 ans, la technique Dhokra — appelée \"cire perdue\" — est l'une des plus anciennes méthodes de moulage du métal au monde. Chaque pièce est unique, façonnée à la main par des artisans tribaux d'Odisha.",
+    story_quote: "\"Nous façonnons le métal comme nos ancêtres l'ont fait pendant des millénaires — avec de la cire d'abeille, de l'argile et du feu.\"",
+    story_cite: "— Suresh Mahali, Artisan Dhokra, Raghurajpur",
+    step1_title: "Modelage en cire", step1_desc: "La forme est sculptée dans de la cire d'abeille naturelle",
+    step2_title: "Enrobage d'argile", step2_desc: "La cire est recouverte d'argile du fleuve local",
+    step3_title: "Fusion du laiton", step3_desc: "Le métal fondu remplace la cire dans le moule",
+    step4_title: "Finition à la main", step4_desc: "L'artisan polit et grave les détails finaux",
+    story_cta: "Voir le processus complet",
+    photo_process: "Photo du processus ici",
+    artisan_eyebrow: "Les Créateurs",
+    artisan_title_html: "Rencontrez <em>nos artisans</em>",
+    artisan_desc: "Chaque achat soutient directement une famille d'artisans dans les villages d'Odisha.",
+    craft_master: "Maître artisan · 22 ans", craft_jewel: "Bijoux Dhokra · 15 ans",
+    craft_sculpt: "Sculpture · 18 ans", photo_artisan: "Photo artisan ici",
+    news_eyebrow: "Restez connecté",
+    news_title_html: "10% sur votre <em>première commande</em>",
+    news_desc: "Inscrivez-vous pour recevoir nos nouvelles collections, les histoires des artisans et des offres exclusives.",
+    form_name: "Votre prénom", form_email: "Votre adresse email",
+    form_submit: "S'inscrire et obtenir -10%",
+    form_note: "Pas de spam. Désinscription facile à tout moment.",
+    footer_tagline: "L'art tribal d'Odisha, façonné à la main et livré directement en France depuis les villages d'artisans.",
+    footer_shop: "Boutique", footer_info: "Informations", footer_help: "Aide",
+    footer_blog: "Blog", footer_shipping: "Livraison", footer_returns: "Retours",
+    footer_faq: "FAQ", footer_copy: "© 2025 Dhokra. Tous droits réservés.",
+    footer_legal1: "Mentions légales", footer_legal2: "Confidentialité", footer_cookies: "Cookies",
+  },
+  hi: {
+    nav_shop: "दुकान", nav_story: "हमारी कहानी", nav_artisans: "कारीगर",
+    nav_art: "ढोकरा कला", nav_contact: "संपर्क", nav_cart: "कार्ट",
+    hero_eyebrow: "जनजातीय कला · ओडिशा, भारत · 4000 वर्ष की परंपरा",
+    hero_title_html: "<em>खोई हुई मोम</em> की कला फ्रांस तक",
+    hero_subtitle: "हर टुकड़ा ओडिशा के कारीगरों द्वारा 4000 साल पुरानी 'लॉस्ट वैक्स' तकनीक से हाथ से बनाया गया है। अद्वितीय, नैतिक, प्रामाणिक।",
+    hero_cta1: "दुकान देखें", hero_cta2: "हमारी कहानी",
+    stat1: "वर्षों का इतिहास", stat2: "हस्तनिर्मित", stat3: "कारीगर समर्थित",
+    photo_placeholder: "ढोकरा शिल्प फोटो यहाँ",
+    hero_caption: "कारीगर काम में · रघुराजपुर गाँव, ओडिशा",
+    marquee1: "उचित व्यापार", marquee2: "फ्रांस डिलीवरी", marquee3: "अद्वितीय टुकड़ा",
+    marquee4: "ओडिशा कारीगर", marquee5: "प्राचीन तकनीक",
+    trust1_title: "उचित व्यापार", trust1_sub: "कारीगरों को उचित भुगतान",
+    trust2_title: "फ्रांस डिलीवरी", trust2_sub: "7–14 कार्य दिवस",
+    trust3_title: "अद्वितीय टुकड़ा", trust3_sub: "हर काम मौलिक है",
+    trust4_title: "आसान वापसी", trust4_sub: "14 दिन, बिना सवाल",
+    prod_eyebrow: "संग्रह", prod_title_html: "<em>चुनी हुई</em> कृतियाँ",
+    prod_desc: "हर वस्तु 'खोई मोम' विधि से पीतल में ढाली जाती है — 4000 साल से अपरिवर्तित तकनीक।",
+    badge_new: "नया", badge_bestseller: "सर्वश्रेष्ठ विक्रेता", badge_unique: "अद्वितीय",
+    cat_deco: "सजावट", cat_sculpture: "मूर्तिकला", cat_bijoux: "आभूषण",
+    prod1_name: "जनजातीय नृत्यांगना", prod1_artisan: "सुरेश महाली द्वारा · रघुराजपुर",
+    prod2_name: "शाही हाथी", prod2_artisan: "कमला देवी द्वारा · ढेंकानाल",
+    prod3_name: "जनजातीय हार", prod3_artisan: "लक्ष्मी साहू द्वारा · बारीपदा",
+    incl_tax: "कर सहित",
+    story_eyebrow: "प्राचीन तकनीक",
+    story_title_html: "<em>खोई मोम</em> की तकनीक",
+    story_body: "4000 से अधिक वर्ष पुरानी ढोकरा तकनीक — 'खोई मोम' — दुनिया में धातु ढलाई की सबसे पुरानी विधियों में से एक है। हर टुकड़ा अद्वितीय है।",
+    story_quote: '"हम धातु को उसी तरह आकार देते हैं जैसे हमारे पूर्वजों ने सहस्राब्दियों से किया — मोम, मिट्टी और आग से।"',
+    story_cite: "— सुरेश महाली, ढोकरा कारीगर, रघुराजपुर",
+    step1_title: "मोम मॉडलिंग", step1_desc: "आकृति प्राकृतिक मधुमोम में बनाई जाती है",
+    step2_title: "मिट्टी लेपन", step2_desc: "मोम को स्थानीय नदी की मिट्टी से ढका जाता है",
+    step3_title: "पीतल गलाना", step3_desc: "पिघली धातु मोम की जगह लेती है",
+    step4_title: "हस्त परिष्करण", step4_desc: "कारीगर अंतिम विवरण पॉलिश करते हैं",
+    story_cta: "पूरी प्रक्रिया देखें",
+    photo_process: "शिल्प प्रक्रिया फोटो यहाँ",
+    artisan_eyebrow: "निर्माता",
+    artisan_title_html: "हमारे <em>कारीगरों</em> से मिलें",
+    artisan_desc: "हर खरीद सीधे ओडिशा के गाँवों में एक कारीगर परिवार को सहायता करती है।",
+    craft_master: "मास्टर कारीगर · 22 साल", craft_jewel: "ढोकरा आभूषण · 15 साल",
+    craft_sculpt: "मूर्तिकला · 18 साल", photo_artisan: "कारीगर फोटो यहाँ",
+    news_eyebrow: "जुड़े रहें",
+    news_title_html: "अपने <em>पहले ऑर्डर</em> पर 10% छूट",
+    news_desc: "नए संग्रह, कारीगर कहानियाँ और विशेष ऑफर पाने के लिए साइन अप करें।",
+    form_name: "आपका नाम", form_email: "आपका ईमेल",
+    form_submit: "साइन अप करें और -10% पाएं",
+    form_note: "कोई स्पैम नहीं। किसी भी समय आसान अनसब्सक्राइब।",
+    footer_tagline: "ओडिशा की जनजातीय कला, हाथ से बनाई और कारीगर गाँवों से सीधे फ्रांस पहुँचाई।",
+    footer_shop: "दुकान", footer_info: "जानकारी", footer_help: "सहायता",
+    footer_blog: "ब्लॉग", footer_shipping: "शिपिंग", footer_returns: "वापसी",
+    footer_faq: "FAQ", footer_copy: "© 2025 Dhokra. सर्वाधिकार सुरक्षित।",
+    footer_legal1: "कानूनी नोटिस", footer_legal2: "गोपनीयता", footer_cookies: "कुकीज़",
+  },
+  od: {
+    nav_shop: "ଦୋକାନ", nav_story: "ଆମ କଥା", nav_artisans: "କারিଗର",
+    nav_art: "ଢ଼ୋକ୍ରା କଳା", nav_contact: "ଯୋଗାଯୋଗ", nav_cart: " କାର୍ଟ",
+    hero_eyebrow: "ଜନଜାତୀୟ କଳା · ଓଡ଼ିଶା, ଭାରତ · ୪୦୦୦ ବର୍ଷର ପରମ୍ପରା",
+    hero_title_html: "<em>ହଜିଯାଇଥିବା ମହୁ</em> କଳା ଫ୍ରାନ୍ସ ପାଇଁ",
+    hero_subtitle: "ପ୍ରତ୍ୟେକ ଖଣ୍ଡ ଓଡ଼ିଶାର କारিগରଙ୍କ ଦ୍ୱାରା ୪୦୦୦ ବର୍ଷ ପୁରୁଣା ହଜିଯାଇଥିବା ମହୁ ଢ଼ଳେଇ ପ୍ରଣାଳୀ ବ୍ୟବହାର କରି ହାତରେ ତିଆରି। ଅନନ୍ୟ, ନୈତିକ, ପ୍ରାମାଣିକ।",
+    hero_cta1: "ଦୋକାନ ଦେଖନ୍ତୁ", hero_cta2: "ଆମ କଥା",
+    stat1: "ବର୍ଷର ଇତିହାସ", stat2: "ହାତରେ ତିଆରି", stat3: "କারିଗର ସହାୟତା",
+    photo_placeholder: "ଢ଼ୋକ୍ରା ଶିଳ୍ପ ଫୋଟୋ ଏଠାରେ",
+    hero_caption: "କारিଗର କାର୍ଯ୍ୟରେ · ରଘୁରାଜପୁର ଗ୍ରାମ, ଓଡ଼ିଶା",
+    marquee1: "ନ୍ୟାୟ ବ୍ୟବସାୟ", marquee2: "ଫ୍ରାନ୍ସ ଡେଲିଭରି", marquee3: "ଅନନ୍ୟ ଖଣ୍ଡ",
+    marquee4: "ଓଡ଼ିଶା କারিଗର", marquee5: "ପ୍ରାଚୀନ ପ୍ରଣାଳୀ",
+    trust1_title: "ନ୍ୟାୟ ବ୍ୟବସାୟ", trust1_sub: "କারিଗରଙ୍କୁ ଉଚିତ ପଇସା",
+    trust2_title: "ଫ୍ରାନ୍ସ ଡେଲିଭରି", trust2_sub: "୭–୧୪ କାର୍ଯ୍ୟ ଦିନ",
+    trust3_title: "ଅନନ୍ୟ ଖଣ୍ଡ", trust3_sub: "ପ୍ରତ୍ୟେକ କୃତି ମୌଳିକ",
+    trust4_title: "ସହଜ ଫେରସ୍ତ", trust4_sub: "୧୪ ଦିନ, ପ୍ରଶ୍ନ ବିନା",
+    prod_eyebrow: "ସଂଗ୍ରହ", prod_title_html: "<em>ବାଛିଥିବା</em> ସୃଷ୍ଟି",
+    prod_desc: "ପ୍ରତ୍ୟେକ ବସ୍ତୁ ୪୦୦୦ ବର୍ଷ ଅପରିବର୍ତ୍ତିତ ପ୍ରଣାଳୀ ଦ୍ୱାରା ପିତ୍ତଳରେ ଢ଼ଳାଯାଏ।",
+    badge_new: "ନୂଆ", badge_bestseller: "ସର୍ବଶ୍ରେଷ୍ଠ ବିକ୍ରୟ", badge_unique: "ଅନନ୍ୟ",
+    cat_deco: "ସଜ୍ଜା", cat_sculpture: "ମୂର୍ତ୍ତି", cat_bijoux: "ଗହଣା",
+    prod1_name: "ଜନଜାତୀୟ ନର୍ତ୍ତକୀ", prod1_artisan: "ସୁରେଶ ମାହାଲି ଦ୍ୱାରା · ରଘୁରାଜପୁର",
+    prod2_name: "ରାଜକୀୟ ହାତୀ", prod2_artisan: "କମଳା ଦେବୀ ଦ୍ୱାରା · ଢ଼େଙ୍କାନାଳ",
+    prod3_name: "ଜନଜାତୀୟ ହାର", prod3_artisan: "ଲକ୍ଷ୍ମୀ ସାହୁ ଦ୍ୱାରା · ବାରିପଦା",
+    incl_tax: "କର ସହ",
+    story_eyebrow: "ପ୍ରାଚୀନ ପ୍ରଣାଳୀ",
+    story_title_html: "<em>ହଜିଯାଇଥିବା ମହୁ</em> ପ୍ରଣାଳୀ",
+    story_body: "୪୦୦୦ ବର୍ଷରୁ ଅଧିକ ପୁରୁଣା ଢ଼ୋକ୍ରା ପ୍ରଣାଳୀ ବିଶ୍ୱର ସବୁଠୁ ପ୍ରାଚୀନ ଧାତୁ ଢ଼ଳେଇ ପ୍ରଣାଳୀ ମଧ୍ୟରୁ ଗୋଟିଏ।",
+    story_quote: '"ଆମ ପୂର୍ବପୁରୁଷ ଯେପରି ସହସ୍ର ବର୍ଷ ଧରି ଧାତୁ ଗଢ଼ିଲେ — ମହୁ, ମାଟି ଓ ଅଗ୍ନି ଦ୍ୱାରା — ଆମ ସେହି ପଥ ଅନୁସରଣ କରୁ।"',
+    story_cite: "— ସୁରେଶ ମାହାଲି, ଢ଼ୋକ୍ରା କारিଗର, ରଘୁରାଜପୁର",
+    step1_title: "ମହୁ ମଡ଼େଲିଂ", step1_desc: "ପ୍ରାକୃତିକ ମଧୁ ଲାହିରେ ଆକୃତି ତିଆରି",
+    step2_title: "ମାଟି ଲେପ", step2_desc: "ମହୁ ଉପରେ ସ୍ଥାନୀୟ ନଦୀ ମାଟି ଲଗାଯାଏ",
+    step3_title: "ପିତ୍ତଳ ଗଳାଣ", step3_desc: "ପିଘଳା ଧାତୁ ମହୁ ସ୍ଥାନ ନେଏ",
+    step4_title: "ହସ୍ତ ସମାପ୍ତି", step4_desc: "କারিଗର ଅଂଶ ଉଜ୍ଜ୍ୱଳ ଓ ଖୋଦେଇ କରନ୍ତି",
+    story_cta: "ସମ୍ପୂର୍ଣ ପ୍ରକ୍ରିୟା ଦେଖନ୍ତୁ",
+    photo_process: "ଶିଳ୍ପ ପ୍ରକ୍ରିୟା ଫୋଟୋ ଏଠାରେ",
+    artisan_eyebrow: "ସ୍ରଷ୍ଟାଗଣ",
+    artisan_title_html: "ଆମ <em>କারିଗରଙ୍କୁ</em> ଭେଟନ୍ତୁ",
+    artisan_desc: "ପ୍ରତ୍ୟେକ କ୍ରୟ ସିଧାସଳଖ ଓଡ଼ିଶା ଗ୍ରାମର ଏକ କारিଗର ପରିବାରକୁ ସହାୟ କରେ।",
+    craft_master: "ମାଷ୍ଟର କারିଗର · ୨୨ ବର୍ଷ", craft_jewel: "ଢ଼ୋକ୍ରା ଗହଣା · ୧୫ ବର୍ଷ",
+    craft_sculpt: "ମୂର୍ତ୍ତି · ୧୮ ବର୍ଷ", photo_artisan: "କारिगर ଫୋଟୋ ଏଠାରେ",
+    news_eyebrow: "ସଂଯୁକ୍ତ ରୁହନ୍ତୁ",
+    news_title_html: "ଆପଣଙ୍କ <em>ପ୍ରଥମ ଅର୍ଡ଼ର</em>ରେ ୧୦% ଛାଡ଼",
+    news_desc: "ନୂଆ ସଂଗ୍ରହ, କारिगर କାହାଣୀ ଓ ବିଶେଷ ଅଫର ପାଇଁ ସାଇନ ଅପ କରନ୍ତୁ।",
+    form_name: "ଆପଣଙ୍କ ନାମ", form_email: "ଆପଣଙ୍କ ଇମେଲ",
+    form_submit: "ସାଇନ ଅପ ଓ -୧୦% ପାଆନ୍ତୁ",
+    form_note: "କୌଣସି ସ୍ପ୍ୟାମ ନାହିଁ। ଯେକୌଣସି ସମୟ ସହଜ ଅନସବ୍ସ୍କ୍ରାଇବ।",
+    footer_tagline: "ଓଡ଼ିଶার ଜନଜାତୀୟ କଳା, ହାତରେ ତିଆରି ଏବଂ ଗ୍ରାମ ଠାରୁ ସିଧାସଳଖ ଫ୍ରାନ୍ସ ଡେଲିଭରି।",
+    footer_shop: "ଦୋକାନ", footer_info: "ସୂଚନା", footer_help: "ସାହାଯ୍ୟ",
+    footer_blog: "ବ୍ଲଗ", footer_shipping: "ଡେଲିଭରି", footer_returns: "ଫେରସ୍ତ",
+    footer_faq: "FAQ", footer_copy: "© ୨୦୨୫ Dhokra. ସମସ୍ତ ଅଧିକାର ସଂରକ୍ଷିତ।",
+    footer_legal1: "ଆଇନ ସୂଚନା", footer_legal2: "ଗୋପନୀୟତା", footer_cookies: "କୁକିଜ଼",
+  }
+};
+
+// ═══════════════════════════════════════════════
+// LANGUAGE ENGINE
+// ═══════════════════════════════════════════════
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update placeholder inputs
+  document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
+    const key = el.getAttribute('data-placeholder-i18n');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + lang).classList.add('active');
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
+
+  // Update marquee (rebuild both halves)
+  const m = document.querySelector('.marquee-inner');
+  if (m) {
+    const keys = ['marquee1','marquee2','marquee3','marquee4','marquee5'];
+    let html = '';
+    for (let i = 0; i < 2; i++) {
+      keys.forEach(k => { html += `<span>${t[k] || ''}</span>`; });
+    }
+    m.innerHTML = html;
+  }
+
+  // Update page title
+  const titles = { en: 'Dhokra — Tribal Art of Odisha', fr: 'Dhokra — L\'Art Tribal d\'Odisha', hi: 'Dhokra — ओडिशा की जनजातीय कला', od: 'Dhokra — ଓଡ଼ିଶାର ଜନଜାତୀୟ କଳା' };
+  document.title = titles[lang];
+}
+
+// ═══════════════════════════════════════════════
+// SCROLL ANIMATIONS
+// ═══════════════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ═══════════════════════════════════════════════
+// MOBILE MENU
+// ═══════════════════════════════════════════════
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  links.style.display = isOpen ? 'none' : 'flex';
+  if (!isOpen) {
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '72px';
+    links.style.left = '0'; links.style.right = '0';
+    links.style.background = 'var(--white)';
+    links.style.padding = '20px 24px';
+    links.style.borderBottom = '1px solid var(--cream-dk)';
+    links.style.zIndex = '99';
+    links.style.gap = '18px';
+  }
+}
+
+// Init with French
+setLang('fr');
+</script>
+
+<!-- ─── SLIDE OUT CART ─── -->
+<div class="cart-backdrop" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-header">
+    <h2 data-i18n="nav_cart">Panier</h2>
+    <button class="close-cart-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <img src="DSC00825.JPG" alt="Tribal Dancer">
+      <div class="cart-item-details">
+        <h4>Tribal Dancer</h4>
+        <p>€68</p>
+        <div class="cart-qty">
+          <button>-</button><span>1</span><button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span>€68</span>
+    </div>
+    <div class="cart-payments">
+      <p style="font-size: 11px; margin-bottom: 8px; color: var(--ink-lt); text-transform: uppercase; letter-spacing: 0.1em;">Express Checkout</p>
+      <div class="payment-buttons">
+        <button class="pay-btn pay-apple"> Pay</button>
+        <button class="pay-btn pay-gpay">
+          <svg width="36" height="15" viewBox="0 0 36 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2536 6.84364L13.2538 6.84376C14.0754 6.84376 14.8118 7.15174 15.3448 7.64015C15.8943 8.14376 16.2087 8.84155 16.2087 9.61051C16.2087 10.3795 15.8943 11.0772 15.3448 11.5808C14.8118 12.0692 14.0754 12.3773 13.2538 12.3773L13.2536 12.3773L10.3014 12.3773L10.3014 6.84364H13.2536ZM13.2536 5.25052H8.56391V13.9704H10.3014V12.3773L13.2536 12.3773C14.5361 12.3773 15.6888 11.896 16.5161 11.1378C17.3756 10.3499 17.8427 9.24357 17.8427 8.01691V7.98687V7.98683C17.8427 6.76017 17.3756 5.65381 16.5161 4.86595C15.6888 4.10776 14.5361 3.62646 13.2536 3.62646V5.25052ZM27.0988 5.63185V13.9704H25.3613V12.593H25.3217C24.7828 13.5131 23.6394 14.1506 22.3725 14.1506C20.3151 14.1506 18.7303 12.721 18.7303 10.7417V10.7416V10.7115C18.7303 8.73228 20.3151 7.30268 22.3725 7.30268C23.6394 7.30268 24.7828 7.94017 25.3217 8.86036H25.3613V5.63185H27.0988ZM22.9567 8.78859C21.8213 8.78859 20.8415 9.61058 20.8415 10.7416C20.8415 11.8727 21.8213 12.6947 22.9567 12.6947C24.0921 12.6947 25.0719 11.8727 25.0719 10.7416C25.0719 9.61058 24.0921 8.78859 22.9567 8.78859ZM32.7483 14.1506C32.0622 14.1506 31.3934 13.9877 30.7963 13.682L31.6373 12.3022C32.0305 12.5152 32.4416 12.6186 32.8458 12.6186C33.3614 12.6186 33.626 12.3611 33.626 11.9687V11.9386L28.1639 5.63185H30.1345L34.5824 10.8711H34.6219L39.0699 5.63185H41.0405L35.4385 12.1648V12.1949C35.4385 13.3855 34.4093 14.1506 32.7483 14.1506Z" fill="white"/>
+            <path d="M5.13264 5.92215C5.81156 5.92215 6.36852 6.10862 6.78651 6.46328C7.2045 6.81793 7.42436 7.29177 7.42436 7.84831V10.7675H5.85045V9.61066H5.78768C5.39417 10.5186 4.70617 10.9925 3.75471 10.9925C2.94639 10.9925 2.27435 10.7644 1.76189 10.3159C1.25585 9.86095 0.998466 9.29345 0.998466 8.64147C0.998466 7.95759 1.27216 7.40428 1.80265 6.96325C2.33959 6.51576 3.09062 6.28691 4.02537 6.28691C4.82133 6.28691 5.48545 6.42597 6.00288 6.69085V6.52988C6.00288 6.11586 5.84534 5.75988 5.51877 5.4619C5.20436 5.16393 4.8118 5.00843 4.31682 5.00843C3.51351 5.00843 2.87102 5.34094 2.42065 5.98687L1.13941 5.17887C1.9961 3.93175 3.09459 3.28424 4.3986 3.28424C5.13264 5.92215 5.13264 5.92215ZM2.56947 8.69446C2.56947 9.00888 2.70138 9.28189 2.94493 9.50284C3.195 9.71754 3.52494 9.82989 3.91689 9.82989C4.54519 9.82989 5.06648 9.59389 5.45266 9.1159C5.84521 8.63152 6.03798 8.09358 6.03798 7.49557C5.6325 7.19758 5.0487 7.03842 4.25413 7.03842C3.76566 7.03842 3.36437 7.15343 3.03152 7.37891C2.70522 7.59792 2.56947 7.91578 2.56947 8.69446Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+      <button class="btn-primary" style="width: 100%; margin-top: 12px; border-radius: 4px;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
